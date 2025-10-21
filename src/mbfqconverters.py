@@ -3,6 +3,7 @@ from _thread import start_new_thread,allocate_lock
 from collections import namedtuple
 from typing import cast
 from project import gateway
+from pyplc.pou import POU
 
 _lock = allocate_lock()
 _queue = []

@@ -22,6 +22,7 @@ class Gear(SFC):
     fault = POU.input(False, hidden = True)
     _lock = POU.input(False,hidden = True)
     q   = POU.output(False, hidden = True)    
+    msg = POU.var('Oжидание')
     
     def __init__(self, fault: bool|None=None, q: bool|None = None, lock: bool|None = None, depends: 'Gear|None'=None, id: str|None = None, parent: POU|None = None) -> None:
         super().__init__(id, parent)
@@ -74,9 +75,11 @@ class Gear(SFC):
             
     def _begin(self):
         self.log('entering working mode')
+        self.msg = 'РАБОТА'
         
     def _end(self):
         self.log('working working mode')
+        self.msg = 'Работа прекращена. В ожидании'
         
     def emergency(self,on: bool):
         self.on = False
@@ -91,6 +94,7 @@ class Gear(SFC):
         self.state = Gear.STARTUP
         self._turnon( )
         self.log('разгоняемся')
+        self.msg = 'Разгон'
         T = 0 
         while T<5 and self._allowed():
             yield from self.pause(1000)
@@ -100,10 +104,12 @@ class Gear(SFC):
             self.rdy = False
             if self.q and self.fault:
                 self.log('аварийный останов при пуске')
+                self.msg = 'Авария при пуске'
         else:
             self.rdy = True
             self.state = Gear.RUN        
             self.log('вышли в режим')
+            self.msg = 'В режиме'
             self._begin()
             yield from self.till(lambda: self.q and self._allowed() and not self._lock, step = 'в работе')
             self._end( )
@@ -115,6 +121,7 @@ class Gear(SFC):
         self.rdy = False
         if self._lock: 
             self.log('отключение по блокировке')
+            self.msg = 'Отключено по блокировке'
             self.lock = True
             
         self.q = False
@@ -134,11 +141,12 @@ class GearROT(Gear):
         if not rot and self.q:
             self.ok = False
             self.log('ошибка: нет вращения')
+            self.msg = 'Нет вращения'
 
 class GearFQ(Gear):
     """Базовый класс для конвейеров c ЧП, сита, барабана с частотным управлением"""
     fq = POU.output(int(0), hidden = False)
-    sp = POU.var(int(32767), persistent=True)  #пусковая частота
+    sp = POU.var(int(500), persistent=True)  #пусковая частота
     
     def _turnon(self):
         self.fq = self.sp
@@ -162,6 +170,7 @@ class Feeder(GearFQ):
         if not rot and self.q:
             self.ok = False
             self.log('ошибка: нет вращения')
+            self.msg = 'Нет вращения'
             
         self.fail = self.fault and self.q
     

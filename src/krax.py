@@ -7,26 +7,28 @@ from project import name as project_name,version_short as project_version
 from gear import Gear as Motor, Feeder,GearFQ,GearROT,GearChain
 from mbfqconverters import FQConv
 from misc import Factory,ControlPost,ControlStation, GearAny
+from pyplc.utils.misc import TON
 
 print(f'\tStarting {project_name} {project_version}')
 
 if platform == 'fake':
   from collections import namedtuple
-  HW = namedtuple('HW', ['TE1', 'TE2', 'H1', 'BURNER_SP', 'MOTOR_ON_1', 'MOTOR_ON_2', 'MOTOR_ON_3', 'MOTOR_ON_4', 'MOTOR_ON_5', 'MOTOR_ON_6', 'MOTOR_ON_7', 'MOTOR_ON_8', 'MOTOR_ON_10', 'BURNER_START', 'MOTOR_ON_11', 'MOTOR_ON_12', 'AUGER_ON_13', 'FILTER_START', 'MOTOR_ON_14', 'MOTOR_ON_15', 'MOTOR_ON_16', 'MOTOR_ON_17', 'MOTOR_ON_18', 'VIBRATOR_ON_1', 'MOTOR_ON_101', 'MOTOR_OFF_101', 'MOTOR_ON_20', 'MOTOR_ON_19', 'VIBRATOR_ON_2', 'AUGER_ON_22', 'AUGER_ON_24', 'AUGER_ON_25', 'COMPRESSOR_ON_28', 'AUGER_ON_26', 'FAN_ON_27', 'ROPE_1', 'BELT_1', 'MOTOR_ISON_2', 'ROPE_3', 'BELT_3', 'MOTOR_ISON_4', 'ROPE_5', 'BELT_5', 'MOTOR_ISON_6', 'ROPE_7', 'BELT_7', 'HLEVEL_1', 'LLEVEL_2', 'ROPE_8', 'BELT_8', 'CLOSED_1', 'ROPE_10', 'BELT_10', 'MOTOR_ISON_11', 'AUGER_ISON_13', 'AUGER_ROT_13', 'ROPE_14', 'BELT_14', 'MOTOR_ISON_15', 'ROPE_16', 'BELT_16', 'MOTOR_ISON_17', 'ROPE_18', 'BELT_18', 'HLEVEL_2', 'ROPE_20', 'BELT_20', 'OPENED_2', 'ROPE_19', 'BELT_19', 'HLEVEL_3', 'LLEVEL_3', 'AUGER_ROT_22', 'HLEVEL_4', 'AUGER_ROT_24', 'AUGER_ISON_25', 'AUGER_ROT_25', 'LLEVEL_4', 'COMPRESSOR_ISON_28', 'FAN_ISON', 'EMERGENCY', 'PU_START_1', 'PU_STOP_1', 'PU_START_2', 'PU_STOP_2', 'MAN_1', 'START_1', 'STOP_1', 'MAN_2', 'START_2', 'STOP_2', 'MAN_3', 'START_3', 'STOP_3', 'MAN_4', 'START_4', 'STOP_4', 'MAN_5', 'START_5', 'STOP_5', 'MAN_6', 'START_6', 'STOP_6', 'MAN_7', 'START_7', 'STOP_7', 'MAN_8', 'START_8', 'STOP_8', 'MAN_10', 'START_10', 'STOP_10', 'MAN_12', 'START_12', 'STOP_12', 'MAN_13', 'START_13', 'STOP_13', 'MAN_14', 'START_14', 'STOP_14', 'MAN_15', 'START_15', 'STOP_15', 'MAN_16', 'START_16', 'STOP_16', 'MAN_17', 'START_17', 'STOP_17', 'MAN_18', 'START_18', 'STOP_18', 'MAN_19', 'START_19', 'STOP_19', 'MAN_20', 'START_20', 'STOP_20', 'MAN_22', 'START_22', 'STOP_22', 'MAN_24', 'START_24', 'STOP_24', 'MAN_25', 'START_25', 'STOP_25', 'MAN_28', 'START_28', 'STOP_28',
+  HW = namedtuple('HW', ['SIREN', 'TE1', 'TE2', 'H1', 'BURNER_SP', 'MOTOR_ON_1', 'MOTOR_ON_2', 'MOTOR_ON_3', 'MOTOR_ON_4', 'MOTOR_ON_5', 'MOTOR_ON_6', 'MOTOR_ON_7', 'MOTOR_ON_8', 'MOTOR_ON_10', 'BURNER_START', 'MOTOR_ON_11', 'MOTOR_ON_12', 'AUGER_ON_13', 'FILTER_START', 'MOTOR_ON_14', 'MOTOR_ON_15', 'MOTOR_ON_16', 'MOTOR_ON_17', 'MOTOR_ON_18', 'VIBRATOR_ON_1', 'MOTOR_ON_101', 'MOTOR_OFF_101', 'MOTOR_ON_20', 'MOTOR_ON_19', 'VIBRATOR_ON_2', 'AUGER_ON_22', 'AUGER_ON_24', 'AUGER_ON_25', 'COMPRESSOR_ON_28', 'AUGER_ON_26', 'FAN_ON_27', 'ROPE_1', 'BELT_1', 'MOTOR_ISON_2', 'ROPE_3', 'BELT_3', 'MOTOR_ISON_4', 'ROPE_5', 'BELT_5', 'MOTOR_ISON_6', 'ROPE_7', 'BELT_7', 'HLEVEL_1', 'LLEVEL_2', 'ROPE_8', 'BELT_8', 'CLOSED_1', 'ROPE_10', 'BELT_10', 'MOTOR_ISON_11', 'AUGER_ISON_13', 'AUGER_ROT_13', 'ROPE_14', 'BELT_14', 'MOTOR_ISON_15', 'ROPE_16', 'BELT_16', 'MOTOR_ISON_17', 'ROPE_18', 'BELT_18', 'HLEVEL_2', 'ROPE_20', 'BELT_20', 'OPENED_2', 'ROPE_19', 'BELT_19', 'HLEVEL_3', 'LLEVEL_3', 'AUGER_ROT_22', 'HLEVEL_4', 'AUGER_ROT_24', 'AUGER_ISON_25', 'AUGER_ROT_25', 'LLEVEL_4', 'COMPRESSOR_ISON_28', 'FAN_ISON', 'EMERGENCY', 'PU_START_1', 'PU_STOP_1', 'PU_START_2', 'PU_STOP_2', 'MAN_1', 'START_1', 'STOP_1', 'MAN_2', 'START_2', 'STOP_2', 'MAN_3', 'START_3', 'STOP_3', 'MAN_4', 'START_4', 'STOP_4', 'MAN_5', 'START_5', 'STOP_5', 'MAN_6', 'START_6', 'STOP_6', 'MAN_7', 'START_7', 'STOP_7', 'MAN_8', 'START_8', 'STOP_8', 'MAN_10', 'START_10', 'STOP_10', 'MAN_12', 'START_12', 'STOP_12', 'MAN_13', 'START_13', 'STOP_13', 'MAN_14', 'START_14', 'STOP_14', 'MAN_15', 'START_15', 'STOP_15', 'MAN_16', 'START_16', 'STOP_16', 'MAN_17', 'START_17', 'STOP_17', 'MAN_18', 'START_18', 'STOP_18', 'MAN_19', 'START_19', 'STOP_19', 'MAN_20', 'START_20', 'STOP_20', 'MAN_22', 'START_22', 'STOP_22', 'MAN_24', 'START_24', 'STOP_24', 'MAN_25', 'START_25', 'STOP_25', 'MAN_28', 'START_28', 'STOP_28',
                   'TE1', 'TE2', 'H1', 'BURNER_SP', 'MOTOR_ON_1', 'MOTOR_ON_2', 'MOTOR_ON_3', 'MOTOR_ON_4', 'MOTOR_ON_5', 'MOTOR_ON_6', 'MOTOR_ON_7', 'MOTOR_ON_8', 'MOTOR_ON_10', 'BURNER_START', 'MOTOR_ON_11', 'MOTOR_ON_12', 'AUGER_ON_13', 'FILTER_START', 'MOTOR_ON_14', 'MOTOR_ON_15', 'MOTOR_ON_16', 'MOTOR_ON_17', 'MOTOR_ON_18', 'VIBRATOR_ON_1', 'MOTOR_ON_101', 'MOTOR_OFF_101', 'MOTOR_ON_20', 'MOTOR_ON_19', 'VIBRATOR_ON_2', 'AUGER_ON_22', 'AUGER_ON_24', 'AUGER_ON_25', 'COMPRESSOR_ON_28', 'AUGER_ON_26', 'FAN_ON_27', 'ROPE_1', 'BELT_1', 'MOTOR_ISON_2', 'ROPE_3', 'BELT_3', 'MOTOR_ISON_4', 'ROPE_5', 'BELT_5', 'MOTOR_ISON_6', 'ROPE_7', 'BELT_7', 'HLEVEL_1', 'LLEVEL_2', 'ROPE_8', 'BELT_8', 'CLOSED_1', 'ROPE_10', 'BELT_10', 'MOTOR_ISON_11', 'AUGER_ISON_13', 'AUGER_ROT_13', 'ROPE_14', 'BELT_14', 'MOTOR_ISON_15', 'ROPE_16', 'BELT_16', 'MOTOR_ISON_17', 'ROPE_18', 'BELT_18', 'HLEVEL_2', 'ROPE_20', 'BELT_20', 'OPENED_2', 'ROPE_19', 'BELT_19', 'HLEVEL_3', 'LLEVEL_3', 'AUGER_ROT_22', 'HLEVEL_4', 'AUGER_ROT_24', 'AUGER_ISON_25', 'AUGER_ROT_25', 'LLEVEL_4', 'COMPRESSOR_ISON_28', 'FAN_ISON', 'EMERGENCY', 'PU_START_1', 'PU_STOP_1', 'PU_START_2', 'PU_STOP_2', 'MAN_1', 'START_1', 'STOP_1', 'MAN_2', 'START_2', 'STOP_2', 'MAN_3', 'START_3', 'STOP_3', 'MAN_4', 'START_4', 'STOP_4', 'MAN_5', 'START_5', 'STOP_5', 'MAN_6', 'START_6', 'STOP_6', 'MAN_7', 'START_7', 'STOP_7', 'MAN_8', 'START_8', 'STOP_8', 'MAN_10', 'START_10', 'STOP_10', 'MAN_12', 'START_12', 'STOP_12', 'MAN_13', 'START_13', 'STOP_13', 'MAN_14', 'START_14', 'STOP_14', 'MAN_15', 'START_15', 'STOP_15', 'MAN_16', 'START_16', 'STOP_16', 'MAN_17', 'START_17', 'STOP_17', 'MAN_18', 'START_18', 'STOP_18', 'MAN_19', 'START_19', 'STOP_19', 'MAN_20', 'START_20', 'STOP_20', 'MAN_22', 'START_22', 'STOP_22', 'MAN_24', 'START_24', 'STOP_24', 'MAN_25', 'START_25', 'STOP_25', 'MAN_28', 'START_28', 'STOP_28'], defaults=[])
   hw = HW()
 
-factory_1 = Factory(emergency=~hw.EMERGENCY)
+factory_1 = Factory(emergency=hw.EMERGENCY)
 fq_1 = FQConv(addr=1)
 fq_3 = FQConv(addr=2) #
 fq_5 = FQConv(addr=9)
 fq_7 = FQConv(addr=10)
 fq_8 = FQConv(addr=11)
 fq_10 = FQConv(addr=3)
+fq_11 = FQConv(addr=55) # барабан
 fq_12 = FQConv(addr=4) #
 fq_14 = FQConv(addr=5)
 fq_16 = FQConv(addr=6)
-fq_18 = FQConv(addr=12)
+fq_18 = FQConv(addr=12) 
 fq_19 = FQConv(addr=13)
 fq_20 = FQConv(addr=7)
 fq_22 = FQConv(addr=201)
@@ -36,6 +38,7 @@ fq_25 = FQConv(addr=203)
 compressor_28 = Motor(q=hw.COMPRESSOR_ON_28,fault=~hw.COMPRESSOR_ISON_28)
 #motor_101 is direct controlled
 #ZONE 2
+motor_999 = Motor(q=hw.SIREN) # MOTOR_SIREN было, из-за idx = 999
 motor_25= Feeder(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25,fault=hw.AUGER_ISON_25,fq=fq_25.set_fq)
 motor_24= Feeder(q=hw.AUGER_ON_24, rot=hw.AUGER_ROT_24,fq=fq_24.set_fq )
 motor_22= Feeder(q=hw.AUGER_ON_22, rot=hw.AUGER_ROT_22,fq=fq_22.set_fq)
@@ -51,7 +54,7 @@ motor_14= Feeder(q=hw.MOTOR_ON_14, fault=fq_14.fault, lock=hw.ROPE_14, rot=hw.BE
 #ZONE 1
 motor_13= GearROT(q=hw.AUGER_ON_13,fault=~hw.AUGER_ISON_13, rot=hw.AUGER_ROT_13)
 motor_12= GearFQ(q=hw.MOTOR_ON_12, fq=fq_12.set_fq,fault=fq_12.fault)
-motor_11= Motor(q=hw.MOTOR_ON_11)
+motor_11= GearFQ(q=hw.MOTOR_ON_11, fq=fq_11.set_fq,fault=fq_11.fault)
 motor_10= Feeder(q=hw.MOTOR_ON_10, fault=fq_10.fault, lock=hw.ROPE_10, rot=hw.BELT_10,fq=fq_10.set_fq,depends=motor_11) 
 motor_9 = Motor()
 motor_8 = Feeder(q=hw.MOTOR_ON_8, fault=fq_8.fault, lock=hw.ROPE_8, rot=hw.BELT_8,fq=fq_8.set_fq)
@@ -89,10 +92,11 @@ mmotor_20 = ControlPost(start=hw.START_20,stop=~hw.STOP_20,manual=hw.MAN_20,gear
 
 mmotor_22 = ControlPost(start=hw.START_22,stop=~hw.STOP_22,manual=hw.MAN_22,gear = motor_22)
 
-chain_8 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8) )
-chain_20 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_18,motor_20) )
-chain_22 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_19,motor_22) )
-chain_25 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_19,motor_24,motor_25) )
+chain_drum = GearChain( gears=(motor_11, motor_999) )
+chain_8 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8, motor_999) )
+chain_20 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_18, motor_999) )
+chain_22 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_19,motor_22, motor_999) )
+chain_25 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_19,motor_24,motor_25, motor_999) )
 
 emergency_stoppable = (motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8,motor_9,motor_10,motor_11,motor_12,motor_13,motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_22,motor_24,motor_25)
 factory_1.on_emergency = [ g.emergency for g in emergency_stoppable ]
@@ -101,13 +105,20 @@ def on_motor_11_run(on: bool):  #фильтр и шнек из него
   motor_12.on = on
   motor_13.on = on
   
-def on_any_motor(on: bool):   #аспирация
+def on_any_motor(on: bool):   #аспирация вкл если что-то заработало, сирена - выкл
   hw.MOTOR_ON_101 = on
   hw.MOTOR_OFF_101 = False
+  hw.SIREN = False
   
 def on_motor_20_run(on:bool):
   compressor_28.on = on
   compressor_28.off = False
+
+def if_opened(on: bool): # концевик открыт
+  motor_20.on = on
+
+def if_closed(off: bool):
+  motor_20.off = off
   
 def is_any_running()->bool:
   for g in emergency_stoppable:
@@ -118,15 +129,17 @@ def is_any_running()->bool:
 
 instances = (factory_1,
             mcompressor_28, 
-            chain_8,chain_20,chain_22,chain_25,
+            chain_drum, chain_8,chain_20,chain_22,chain_25,
             mmotor_1,mmotor_1a,mmotor_2,mmotor_3,mmotor_4,mmotor_5,mmotor_6,mmotor_7,mmotor_8,mmotor_10,mmotor_11,mmotor_12,mmotor_13,
             mmotor_14,mmotor_15,mmotor_15,mmotor_16,mmotor_17,mmotor_18,mmotor_19,mmotor_20,mmotor_22,
-            compressor_28,
+            compressor_28, motor_999,
             motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,
             any_7_or_10,any_18_or_19,any_22_or_24,
             motor_7,motor_8,motor_9,motor_10,motor_11,motor_12,motor_13,
             motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_22,motor_24,motor_25,
-            fq_1,fq_3, fq_5,fq_7,fq_8,fq_10,fq_12,fq_14,fq_16,fq_18,fq_19,fq_20,
+            fq_1,fq_3, fq_5,fq_7,fq_8,fq_10, fq_11, fq_12,fq_14,fq_16,fq_18,fq_19,fq_20,
+            RTRIG(clk=lambda: hw.OPENED_2==True, q=if_opened),
+            RTRIG(clk=lambda: hw.OPENED_2==False, q=if_closed),
             RTRIG(clk=lambda: motor_11.state==Motor.RUN,q=on_motor_11_run),
             RTRIG(clk=lambda: motor_20.state==Motor.RUN,q=on_motor_20_run),
             TP(clk=is_any_running,q=on_any_motor)

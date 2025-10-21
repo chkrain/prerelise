@@ -34,7 +34,7 @@
         "flags": 0,
         "iface": 0,
         "channel": 1,
-        "rate": 6
+        "rate": 9
     },
     "scanTime": 125
 }

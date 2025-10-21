@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
+    <width>2001</width>
     <height>950</height>
    </rect>
   </property>
@@ -127,7 +127,7 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     <widget class="QWebEngineView" name="webEngineView">
      <property name="url">
       <url>
-       <string>http://localhost:3000/d/fe431b9d-6e6e-4bfe-bf86-0f45ab84aba2/overview?orgId=1&amp;refresh=5s&amp;from=now-30m&amp;to=now&amp;kiosk</string>
+       <string>file:///home/user/Downloads/instruction-main/index.html</string>
       </url>
      </property>
     </widget>

@@ -1,10 +1,10 @@
 import os
 import sys
 # os.environ["QT_API"] = "pyqt6"
-sys.argv += ['--opentsdb','127.0.0.1','--grafana=127.0.0.1','--grafana_key=glsa_seBJY5YcvEip7dVLnFwqSm4ULohZVAgQ_890892c0']
+sys.argv += ['--opentsdb','127.0.0.1','--grafana=127.0.0.1','--grafana_key=glsa_9UqkO45maXEGLTbU41GPA8ac1DYW3rXe_cee7e53f']
 from pysca import app
 from pysca.device import PYPLC
-import pygui.navbar as navbar
+import pygui.multihead as navbar
 
 def main():
     import argparse
@@ -24,11 +24,13 @@ def main():
     Zone_1 = app.window('ui/zone_1.ui')
     Zone_2 = app.window('ui/zone_2.ui')
     Zone_3 = app.window('ui/zone_3.ui')
+    Zone_4 = app.window('ui/zone_4.ui')
 
     # с использованием navbar
     navbar.append(Zone_1)
     navbar.append(Zone_2)
     navbar.append(Zone_3)
+    navbar.append(Zone_4)
     navbar.tools(app.window('ui/info.ui'))
     navbar.instance.show( )
     navbar.instance.setWindowTitle('АСУ ПЕРЕРАБОТКИ И ФАСОВКИ ТРЕПЕЛА 250817 (c) 2025')

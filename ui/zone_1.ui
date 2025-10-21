@@ -472,8 +472,8 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
   <widget class="Animation" name="machine_8">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>490</y>
+     <x>190</x>
+     <y>570</y>
      <width>352</width>
      <height>208</height>
     </rect>
@@ -482,27 +482,6 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     <url>
      <string>qrc:/TREPEL/resources/irconveyor-2m.mng</string>
     </url>
-   </property>
-  </widget>
-  <widget class="Animation" name="pack">
-   <property name="geometry">
-    <rect>
-     <x>253</x>
-     <y>630</y>
-     <width>42</width>
-     <height>42</height>
-    </rect>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-   <property name="source">
-    <url>
-     <string>qrc:/TREPEL/resources/valve.mng</string>
-    </url>
-   </property>
-   <property name="playbackHints">
-    <set>Animation::Bounce</set>
    </property>
   </widget>
   <widget class="Animation" name="machine_19">
@@ -586,40 +565,18 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="arrow_7">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>570</y>
-     <width>48</width>
-     <height>48</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="../resources.qrc">:/TREPEL/resources/down.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="Animation" name="machine_11">
    <property name="geometry">
     <rect>
-     <x>1410</x>
-     <y>750</y>
+     <x>1420</x>
+     <y>760</y>
      <width>531</width>
      <height>201</height>
     </rect>
    </property>
    <property name="source">
     <url>
-     <string>file:///home/vlinnik/Documents/PYSCA/TREPEL-250817/resources/drum0.7.mng</string>
+     <string>qrc:/TREPEL/resources/drum0.7.mng</string>
     </url>
    </property>
   </widget>
@@ -646,7 +603,7 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     </rect>
    </property>
    <property name="title">
-    <string>M3</string>
+    <string>Конв. на дробилку М3</string>
    </property>
    <property name="idx" stdset="0">
     <number>3</number>
@@ -662,7 +619,7 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     </rect>
    </property>
    <property name="title">
-    <string>М5</string>
+    <string>Конв. на грохот М5</string>
    </property>
    <property name="idx" stdset="0">
     <number>5</number>
@@ -678,7 +635,7 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     </rect>
    </property>
    <property name="title">
-    <string>М7 (НА ФАСОВКУ)</string>
+    <string>Конв. на бункер М7</string>
    </property>
    <property name="idx" stdset="0">
     <number>7</number>
@@ -694,25 +651,10 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     </rect>
    </property>
    <property name="title">
-    <string>М8 (6)</string>
+    <string>Конв. на фасовку М8</string>
    </property>
    <property name="idx" stdset="0">
     <number>8</number>
-   </property>
-  </widget>
-  <widget class="Animation" name="machine_9">
-   <property name="geometry">
-    <rect>
-     <x>-70</x>
-     <y>730</y>
-     <width>374</width>
-     <height>90</height>
-    </rect>
-   </property>
-   <property name="source">
-    <url>
-     <string>qrc:/TREPEL/resources/rconveyor-2m.mng</string>
-    </url>
    </property>
   </widget>
   <widget class="GearFQ" name="gear_10">
@@ -725,32 +667,10 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     </rect>
    </property>
    <property name="title">
-    <string>М10</string>
+    <string>Конв. на барабан М10</string>
    </property>
    <property name="idx" stdset="0">
     <number>10</number>
-   </property>
-  </widget>
-  <widget class="QLabel" name="arrow_10">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>251</x>
-     <y>680</y>
-     <width>48</width>
-     <height>48</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="../resources.qrc">:/TREPEL/resources/down.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="arrow_11">
@@ -961,25 +881,6 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     <number>6</number>
    </property>
   </widget>
-  <widget class="Gear" name="gear_11">
-   <property name="geometry">
-    <rect>
-     <x>1430</x>
-     <y>493</y>
-     <width>215</width>
-     <height>187</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>БАРАБАН (11)</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-   <property name="idx" stdset="0">
-    <number>11</number>
-   </property>
-  </widget>
   <widget class="Gear" name="gear_26">
    <property name="geometry">
     <rect>
@@ -1052,6 +953,9 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
    <property name="title">
     <string>Дымосос (12)</string>
    </property>
+   <property name="idx" stdset="0">
+    <number>12</number>
+   </property>
   </widget>
   <widget class="Auger" name="auger">
    <property name="geometry">
@@ -1063,7 +967,7 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
     </rect>
    </property>
    <property name="title">
-    <string>ШНЕК (13)</string>
+    <string>ШНЕК сброса оскадка(13)</string>
    </property>
    <property name="idx" stdset="0">
     <number>13</number>
@@ -1105,8 +1009,8 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
   <widget class="QGroupBox" name="aspiration">
    <property name="geometry">
     <rect>
-     <x>1692</x>
-     <y>695</y>
+     <x>1170</x>
+     <y>290</y>
      <width>215</width>
      <height>133</height>
     </rect>
@@ -1410,8 +1314,39 @@ QLabel
     </item>
    </layout>
   </widget>
+  <widget class="GearFQ" name="gear_11">
+   <property name="geometry">
+    <rect>
+     <x>1450</x>
+     <y>500</y>
+     <width>200</width>
+     <height>187</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>БАРАБАН</string>
+   </property>
+   <property name="prefix" stdset="0">
+    <string>MOTOR</string>
+   </property>
+   <property name="idx" stdset="0">
+    <number>11</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>1660</x>
+     <y>740</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Температура</string>
+   </property>
+  </widget>
   <zorder>machine_10</zorder>
-  <zorder>machine_9</zorder>
   <zorder>machine_11</zorder>
   <zorder>machine_4</zorder>
   <zorder>machine_6</zorder>
@@ -1422,19 +1357,16 @@ QLabel
   <zorder>machine_7</zorder>
   <zorder>machine_12</zorder>
   <zorder>machine_8</zorder>
-  <zorder>pack</zorder>
   <zorder>machine_19</zorder>
   <zorder>arrow_1</zorder>
   <zorder>arrow_2</zorder>
   <zorder>arrow_6</zorder>
-  <zorder>arrow_7</zorder>
   <zorder>gear_1</zorder>
   <zorder>gear_3</zorder>
   <zorder>gear_5</zorder>
   <zorder>gear_8</zorder>
   <zorder>gear_10</zorder>
   <zorder>gear_7</zorder>
-  <zorder>arrow_10</zorder>
   <zorder>arrow_11</zorder>
   <zorder>arrow_12</zorder>
   <zorder>arrow_13</zorder>
@@ -1445,7 +1377,6 @@ QLabel
   <zorder>gear_2</zorder>
   <zorder>gear_4</zorder>
   <zorder>gear_6</zorder>
-  <zorder>gear_11</zorder>
   <zorder>gear_26</zorder>
   <zorder>scanTime</zorder>
   <zorder>powered</zorder>
@@ -1453,10 +1384,12 @@ QLabel
   <zorder>auger</zorder>
   <zorder>runtimetrend</zorder>
   <zorder>aspiration</zorder>
+  <zorder>gear_11</zorder>
+  <zorder>label</zorder>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Exhauser</class>
+   <class>Auger</class>
    <extends>QGroupBox</extends>
    <header>customplugin</header>
   </customwidget>
@@ -1466,7 +1399,7 @@ QLabel
    <header>customplugin</header>
   </customwidget>
   <customwidget>
-   <class>Auger</class>
+   <class>Exhauser</class>
    <extends>QGroupBox</extends>
    <header>customplugin</header>
   </customwidget>
@@ -1483,7 +1416,7 @@ QLabel
   </customwidget>
   <customwidget>
    <class>RuntimeTrend</class>
-   <extends>QWidget</extends>
+   <extends>QFrame</extends>
    <header>pygui.runtimetrend</header>
   </customwidget>
  </customwidgets>
