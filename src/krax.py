@@ -31,7 +31,7 @@ fq_16 = FQConv(addr=6)
 fq_18 = FQConv(addr=12) 
 fq_19 = FQConv(addr=13)
 fq_20 = FQConv(addr=7)
-fq_22 = FQConv(addr=201)
+# fq_22 = FQConv(addr=201)
 fq_24 = FQConv(addr=202)
 fq_25 = FQConv(addr=203)
 
@@ -41,7 +41,7 @@ compressor_28 = Motor(q=hw.COMPRESSOR_ON_28,fault=~hw.COMPRESSOR_ISON_28)
 motor_999 = Motor(q=hw.SIREN) # MOTOR_SIREN было, из-за idx = 999
 motor_25= Feeder(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25,fault=hw.AUGER_ISON_25,fq=fq_25.set_fq)
 motor_24= Feeder(q=hw.AUGER_ON_24, rot=hw.AUGER_ROT_24,fq=fq_24.set_fq )
-motor_22= Feeder(q=hw.AUGER_ON_22, rot=hw.AUGER_ROT_22,fq=fq_22.set_fq)
+motor_22= GearROT(q=hw.AUGER_ON_25, fault=~hw.AUGER_ISON_25, rot=hw.AUGER_ROT_25) # auger_ison_25 соответствует 22ому, но обр связь взята с 25.
 motor_20= Feeder(q=hw.MOTOR_ON_20, fault=fq_20.fault, lock=hw.ROPE_20, rot=hw.BELT_20,fq=fq_20.set_fq)
 any_22_or_24 = GearAny(motor_22,motor_24)
 motor_19= Feeder(q=hw.MOTOR_ON_19, fault=fq_19.fault, lock=hw.ROPE_19, rot=hw.BELT_19,fq=fq_19.set_fq,depends=any_22_or_24)
@@ -89,26 +89,30 @@ mmotor_17 = ControlPost(start=hw.START_17,stop=~hw.STOP_17,manual=hw.MAN_17,gear
 mmotor_18 = ControlPost(start=hw.START_18,stop=~hw.STOP_18,manual=hw.MAN_18,gear = motor_18)
 mmotor_19 = ControlPost(start=hw.START_19,stop=~hw.STOP_19,manual=hw.MAN_19,gear = motor_19)
 mmotor_20 = ControlPost(start=hw.START_20,stop=~hw.STOP_20,manual=hw.MAN_20,gear = motor_20)
-
 mmotor_22 = ControlPost(start=hw.START_22,stop=~hw.STOP_22,manual=hw.MAN_22,gear = motor_22)
 
 chain_drum = GearChain( gears=(motor_11, motor_999) )
 chain_8 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8, motor_999) )
-chain_20 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_18, motor_999) )
-chain_22 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_19,motor_22, motor_999) )
-chain_25 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_19,motor_24,motor_25, motor_999) )
+# chain_20 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_13, motor_14,motor_15,motor_16,motor_17,motor_18, motor_999) )
+chain_22 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_13, motor_14,motor_15,motor_16,motor_17,motor_18,motor_19, motor_999) )
+# chain_25 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_13, motor_14,motor_15,motor_16,motor_17,motor_19,motor_24,motor_25, motor_999) )
 
 emergency_stoppable = (motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8,motor_9,motor_10,motor_11,motor_12,motor_13,motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_22,motor_24,motor_25)
 factory_1.on_emergency = [ g.emergency for g in emergency_stoppable ]
 
 def on_motor_11_run(on: bool):  #фильтр и шнек из него
   motor_12.on = on
-  motor_13.on = on
+  motor_999.off = False
+
+def on_motor_19_run(on: bool):  
+  motor_999.off = False
+
+def on_motor_18_run(on: bool):  
+  motor_999.off = False
   
 def on_any_motor(on: bool):   #аспирация вкл если что-то заработало, сирена - выкл
   hw.MOTOR_ON_101 = on
   hw.MOTOR_OFF_101 = False
-  hw.SIREN = False
   
 def on_motor_20_run(on:bool):
   compressor_28.on = on
@@ -127,9 +131,15 @@ def is_any_running()->bool:
     
   return False
 
+level_3_monitor = TON(clk=lambda: hw.HLEVEL_3, pt=10000, q=lambda timeout: setattr(motor_20, 'off', True) if timeout else None)
+ 
+level_4_monitor = TON(clk=lambda: hw.HLEVEL_4, pt=10000, q=lambda timeout: setattr(motor_19, 'off', True) if timeout else None)
+
+siren_stop = TON(clk=lambda: hw.SIREN, pt=10000, q=lambda timeout: setattr(motor_999, 'off', True) if timeout else None)
+
 instances = (factory_1,
             mcompressor_28, 
-            chain_drum, chain_8,chain_20,chain_22,chain_25,
+            chain_drum, chain_8,chain_22,
             mmotor_1,mmotor_1a,mmotor_2,mmotor_3,mmotor_4,mmotor_5,mmotor_6,mmotor_7,mmotor_8,mmotor_10,mmotor_11,mmotor_12,mmotor_13,
             mmotor_14,mmotor_15,mmotor_15,mmotor_16,mmotor_17,mmotor_18,mmotor_19,mmotor_20,mmotor_22,
             compressor_28, motor_999,
@@ -141,8 +151,10 @@ instances = (factory_1,
             RTRIG(clk=lambda: hw.OPENED_2==True, q=if_opened),
             RTRIG(clk=lambda: hw.OPENED_2==False, q=if_closed),
             RTRIG(clk=lambda: motor_11.state==Motor.RUN,q=on_motor_11_run),
+            RTRIG(clk=lambda: motor_19.state==Motor.RUN,q=on_motor_19_run),
+            RTRIG(clk=lambda: motor_18.state==Motor.RUN,q=on_motor_18_run),
             RTRIG(clk=lambda: motor_20.state==Motor.RUN,q=on_motor_20_run),
-            TP(clk=is_any_running,q=on_any_motor)
+            TP(clk=is_any_running,q=on_any_motor), level_3_monitor, level_4_monitor, siren_stop
             #,fq_22,fq_24,fq_25
             )  #tuple быстее than []
 

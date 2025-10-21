@@ -1336,7 +1336,7 @@ QLabel
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>1660</x>
+     <x>1608</x>
      <y>740</y>
      <width>81</width>
      <height>21</height>
@@ -1344,6 +1344,74 @@ QLabel
    </property>
    <property name="text">
     <string>Температура</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>1780</x>
+     <y>740</y>
+     <width>88</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ЗВОНОК</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>6</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Влажность</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>1510</x>
+     <y>550</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid silver;
+border-radius: 4px;
+color: white;
+background-color: rgba(38, 162, 105,150);
+padding: 4px;
+</string>
+   </property>
+   <property name="text">
+    <string>I</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>1510</x>
+     <y>590</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid silver;
+border-radius: 4px;
+color: white;
+background-color: rgba(192, 28, 40,150);
+padding: 4px;
+</string>
+   </property>
+   <property name="text">
+    <string>O</string>
    </property>
   </widget>
   <zorder>machine_10</zorder>
@@ -1386,6 +1454,10 @@ QLabel
   <zorder>aspiration</zorder>
   <zorder>gear_11</zorder>
   <zorder>label</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>label_2</zorder>
+  <zorder>pushButton_2</zorder>
+  <zorder>pushButton_3</zorder>
  </widget>
  <customwidgets>
   <customwidget>

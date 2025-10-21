@@ -141,7 +141,7 @@ class GearROT(Gear):
         if not rot and self.q:
             self.ok = False
             self.log('ошибка: нет вращения')
-            self.msg = 'Нет вращения'
+            self.msg = 'Проверить вращение'
 
 class GearFQ(Gear):
     """Базовый класс для конвейеров c ЧП, сита, барабана с частотным управлением"""

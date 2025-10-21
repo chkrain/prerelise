@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>2072</width>
-    <height>950</height>
+    <height>954</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -240,8 +240,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="Animation" name="machine_20">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>674</y>
+     <x>40</x>
+     <y>672</y>
      <width>352</width>
      <height>208</height>
     </rect>
@@ -255,8 +255,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="Animation" name="valve_2">
    <property name="geometry">
     <rect>
-     <x>262</x>
-     <y>820</y>
+     <x>52</x>
+     <y>818</y>
      <width>42</width>
      <height>42</height>
     </rect>
@@ -273,8 +273,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="Animation" name="machine_22">
    <property name="geometry">
     <rect>
-     <x>1210</x>
-     <y>770</y>
+     <x>1450</x>
+     <y>800</y>
      <width>106</width>
      <height>50</height>
     </rect>
@@ -338,8 +338,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>774</y>
+     <x>50</x>
+     <y>772</y>
      <width>48</width>
      <height>48</height>
     </rect>
@@ -363,8 +363,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>862</y>
+     <x>50</x>
+     <y>860</y>
      <width>48</width>
      <height>48</height>
     </rect>
@@ -388,8 +388,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
-     <x>1370</x>
-     <y>880</y>
+     <x>1620</x>
+     <y>850</y>
      <width>48</width>
      <height>48</height>
     </rect>
@@ -486,8 +486,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="GearFQ" name="gear_20">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>712</y>
+     <x>160</x>
+     <y>710</y>
      <width>200</width>
      <height>193</height>
     </rect>
@@ -499,26 +499,10 @@ QWidget:enabled[style=&quot;connector&quot;]
     <number>20</number>
    </property>
   </widget>
-  <widget class="GearFQ" name="gear_19">
-   <property name="geometry">
-    <rect>
-     <x>950</x>
-     <y>690</y>
-     <width>200</width>
-     <height>193</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Конв. на бункер М19</string>
-   </property>
-   <property name="idx" stdset="0">
-    <number>19</number>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>1160</x>
+     <x>1240</x>
      <y>760</y>
      <width>48</width>
      <height>48</height>
@@ -597,22 +581,6 @@ QWidget:enabled[style=&quot;connector&quot;]
     <number>17</number>
    </property>
   </widget>
-  <widget class="Auger" name="gear_22">
-   <property name="geometry">
-    <rect>
-     <x>1290</x>
-     <y>690</y>
-     <width>200</width>
-     <height>187</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>ШНЕК (22)</string>
-   </property>
-   <property name="idx" stdset="0">
-    <number>22</number>
-   </property>
-  </widget>
   <widget class="QLabel" name="checkpoint_9">
    <property name="geometry">
     <rect>
@@ -624,25 +592,6 @@ QWidget:enabled[style=&quot;connector&quot;]
    </property>
    <property name="text">
     <string>14</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="style" stdset="0">
-    <string>checkpoint</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="checkpoint_14">
-   <property name="geometry">
-    <rect>
-     <x>1486</x>
-     <y>17</y>
-     <width>42</width>
-     <height>42</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>24</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -793,25 +742,6 @@ QWidget:enabled[style=&quot;connector&quot;]
     <string>checkpoint</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="start_25">
-   <property name="geometry">
-    <rect>
-     <x>1716</x>
-     <y>22</y>
-     <width>88</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ПУСК</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-   <property name="style" stdset="0">
-    <string>warning</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="checkpoint_4">
    <property name="geometry">
     <rect>
@@ -853,8 +783,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="QLabel" name="checkpoint_19">
    <property name="geometry">
     <rect>
-     <x>1286</x>
-     <y>120</y>
+     <x>1390</x>
+     <y>20</y>
      <width>42</width>
      <height>42</height>
     </rect>
@@ -973,8 +903,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="QPushButton" name="stop_22">
    <property name="geometry">
     <rect>
-     <x>1821</x>
-     <y>69</y>
+     <x>1770</x>
+     <y>21</y>
      <width>88</width>
      <height>35</height>
     </rect>
@@ -1046,30 +976,11 @@ QWidget:enabled[style=&quot;connector&quot;]
     <string>checkpoint</string>
    </property>
   </widget>
-  <widget class="QLabel" name="checkpoint_15">
-   <property name="geometry">
-    <rect>
-     <x>1596</x>
-     <y>17</y>
-     <width>42</width>
-     <height>42</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>25</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="style" stdset="0">
-    <string>checkpoint</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="checkpoint_13">
    <property name="geometry">
     <rect>
-     <x>1386</x>
-     <y>17</y>
+     <x>1480</x>
+     <y>20</y>
      <width>42</width>
      <height>42</height>
     </rect>
@@ -1082,47 +993,6 @@ QWidget:enabled[style=&quot;connector&quot;]
    </property>
    <property name="style" stdset="0">
     <string>checkpoint</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="checkpoint_18">
-   <property name="geometry">
-    <rect>
-     <x>1387</x>
-     <y>70</y>
-     <width>42</width>
-     <height>42</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>22</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="style" stdset="0">
-    <string>checkpoint</string>
-   </property>
-  </widget>
-  <widget class="Line" name="connector_19">
-   <property name="geometry">
-    <rect>
-     <x>1280</x>
-     <y>20</y>
-     <width>54</width>
-     <height>112</height>
-    </rect>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>15</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-   <property name="style" stdset="0">
-    <string>connector</string>
    </property>
   </widget>
   <widget class="QLabel" name="checkpoint_7">
@@ -1210,8 +1080,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="QPushButton" name="start_22">
    <property name="geometry">
     <rect>
-     <x>1716</x>
-     <y>71</y>
+     <x>1677</x>
+     <y>21</y>
      <width>88</width>
      <height>35</height>
     </rect>
@@ -1314,25 +1184,6 @@ QWidget:enabled[style=&quot;connector&quot;]
     <string>connector</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="start_20">
-   <property name="geometry">
-    <rect>
-     <x>1716</x>
-     <y>123</y>
-     <width>88</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ПУСК</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-   <property name="style" stdset="0">
-    <string>warning</string>
-   </property>
-  </widget>
   <widget class="Line" name="connector_10">
    <property name="geometry">
     <rect>
@@ -1377,52 +1228,11 @@ QWidget:enabled[style=&quot;connector&quot;]
     <string>connector</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="stop_20">
-   <property name="geometry">
-    <rect>
-     <x>1821</x>
-     <y>121</y>
-     <width>88</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>СТОП</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-   <property name="style" stdset="0">
-    <string>danger</string>
-   </property>
-  </widget>
   <widget class="Line" name="connector_9">
    <property name="geometry">
     <rect>
      <x>986</x>
      <y>28</y>
-     <width>92</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>15</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="style" stdset="0">
-    <string>connector</string>
-   </property>
-  </widget>
-  <widget class="Line" name="connector_14">
-   <property name="geometry">
-    <rect>
-     <x>1516</x>
-     <y>29</y>
      <width>92</width>
      <height>20</height>
     </rect>
@@ -1465,8 +1275,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="Line" name="connector_18">
    <property name="geometry">
     <rect>
-     <x>1307</x>
-     <y>132</y>
+     <x>1500</x>
+     <y>30</y>
      <width>92</width>
      <height>20</height>
     </rect>
@@ -1487,8 +1297,8 @@ QWidget:enabled[style=&quot;connector&quot;]
   <widget class="QLabel" name="checkpoint_20">
    <property name="geometry">
     <rect>
-     <x>1386</x>
-     <y>120</y>
+     <x>1570</x>
+     <y>20</y>
      <width>42</width>
      <height>42</height>
     </rect>
@@ -1501,28 +1311,6 @@ QWidget:enabled[style=&quot;connector&quot;]
    </property>
    <property name="style" stdset="0">
     <string>checkpoint</string>
-   </property>
-  </widget>
-  <widget class="Line" name="connector_17">
-   <property name="geometry">
-    <rect>
-     <x>1380</x>
-     <y>26</y>
-     <width>54</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>15</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-   <property name="style" stdset="0">
-    <string>connector</string>
    </property>
   </widget>
   <widget class="QLabel" name="checkpoint_6">
@@ -1542,25 +1330,6 @@ QWidget:enabled[style=&quot;connector&quot;]
    </property>
    <property name="style" stdset="0">
     <string>checkpoint</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="stop_25">
-   <property name="geometry">
-    <rect>
-     <x>1821</x>
-     <y>21</y>
-     <width>88</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>СТОП</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-   <property name="style" stdset="0">
-    <string>danger</string>
    </property>
   </widget>
   <widget class="Line" name="connector_20">
@@ -1585,56 +1354,12 @@ QWidget:enabled[style=&quot;connector&quot;]
     <string>connector</string>
    </property>
   </widget>
-  <widget class="Line" name="connector_21">
-   <property name="geometry">
-    <rect>
-     <x>1426</x>
-     <y>131</y>
-     <width>289</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>15</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="style" stdset="0">
-    <string>connector</string>
-   </property>
-  </widget>
   <widget class="Line" name="connector_22">
    <property name="geometry">
     <rect>
-     <x>1427</x>
-     <y>80</y>
-     <width>289</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>15</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="style" stdset="0">
-    <string>connector</string>
-   </property>
-  </widget>
-  <widget class="Line" name="connector_23">
-   <property name="geometry">
-    <rect>
-     <x>1636</x>
-     <y>28</y>
-     <width>79</width>
+     <x>1606</x>
+     <y>30</y>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -2355,16 +2080,188 @@ QWidget:enabled[style=&quot;connector&quot;]
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="Gear" name="gear">
+   <property name="geometry">
+    <rect>
+     <x>1540</x>
+     <y>660</y>
+     <width>200</width>
+     <height>187</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>ШНЕК 22</string>
+   </property>
+   <property name="idx" stdset="0">
+    <number>25</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_27">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>660</y>
+     <width>151</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/бункер_малый.png</pixmap>
+   </property>
+  </widget>
+  <widget class="GearFQ" name="gear_19">
+   <property name="geometry">
+    <rect>
+     <x>1030</x>
+     <y>660</y>
+     <width>200</width>
+     <height>193</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Конв. на бункер М19</string>
+   </property>
+   <property name="idx" stdset="0">
+    <number>19</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_29">
+   <property name="geometry">
+    <rect>
+     <x>1340</x>
+     <y>680</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/attention.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_33">
+   <property name="geometry">
+    <rect>
+     <x>1350</x>
+     <y>790</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/red-led.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_36">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>690</y>
+     <width>151</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/бункер_малый.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_34">
+   <property name="geometry">
+    <rect>
+     <x>1440</x>
+     <y>740</y>
+     <width>48</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>48</width>
+     <height>48</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/right.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_35">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>770</y>
+     <width>48</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>48</width>
+     <height>48</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/left.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_37">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>720</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/attention.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_38">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>820</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/red-led.png</pixmap>
+   </property>
+  </widget>
   <zorder>connector_20</zorder>
-  <zorder>connector_21</zorder>
   <zorder>connector_22</zorder>
-  <zorder>connector_23</zorder>
   <zorder>start_22</zorder>
   <zorder>stop_22</zorder>
-  <zorder>stop_20</zorder>
-  <zorder>start_20</zorder>
-  <zorder>connector_17</zorder>
-  <zorder>connector_19</zorder>
   <zorder>connector_18</zorder>
   <zorder>machine_14</zorder>
   <zorder>machine_15</zorder>
@@ -2385,16 +2282,13 @@ QWidget:enabled[style=&quot;connector&quot;]
   <zorder>label_4</zorder>
   <zorder>gear_18</zorder>
   <zorder>gear_20</zorder>
-  <zorder>gear_19</zorder>
   <zorder>label_5</zorder>
   <zorder>label_6</zorder>
   <zorder>gear_15</zorder>
   <zorder>gear_17</zorder>
-  <zorder>gear_22</zorder>
   <zorder>connector_8</zorder>
   <zorder>connector_12</zorder>
   <zorder>connector_16</zorder>
-  <zorder>start_25</zorder>
   <zorder>connector_2</zorder>
   <zorder>start_8</zorder>
   <zorder>connector_5</zorder>
@@ -2408,9 +2302,7 @@ QWidget:enabled[style=&quot;connector&quot;]
   <zorder>connector_10</zorder>
   <zorder>connector_6</zorder>
   <zorder>connector_9</zorder>
-  <zorder>connector_14</zorder>
   <zorder>connector_4</zorder>
-  <zorder>stop_25</zorder>
   <zorder>checkpoint_1</zorder>
   <zorder>checkpoint_9</zorder>
   <zorder>checkpoint_2</zorder>
@@ -2418,9 +2310,7 @@ QWidget:enabled[style=&quot;connector&quot;]
   <zorder>checkpoint_5</zorder>
   <zorder>checkpoint_7</zorder>
   <zorder>checkpoint_12</zorder>
-  <zorder>checkpoint_14</zorder>
   <zorder>checkpoint_8</zorder>
-  <zorder>checkpoint_15</zorder>
   <zorder>checkpoint_11</zorder>
   <zorder>checkpoint_3</zorder>
   <zorder>checkpoint_13</zorder>
@@ -2428,7 +2318,6 @@ QWidget:enabled[style=&quot;connector&quot;]
   <zorder>checkpoint_10</zorder>
   <zorder>checkpoint_20</zorder>
   <zorder>checkpoint_19</zorder>
-  <zorder>checkpoint_18</zorder>
   <zorder>checkpoint_16</zorder>
   <zorder>checkpoint_17</zorder>
   <zorder>checkpoint_21</zorder>
@@ -2475,13 +2364,18 @@ QWidget:enabled[style=&quot;connector&quot;]
   <zorder>label_30</zorder>
   <zorder>label_31</zorder>
   <zorder>label_32</zorder>
+  <zorder>gear</zorder>
+  <zorder>label_27</zorder>
+  <zorder>gear_19</zorder>
+  <zorder>label_29</zorder>
+  <zorder>label_33</zorder>
+  <zorder>label_36</zorder>
+  <zorder>label_34</zorder>
+  <zorder>label_35</zorder>
+  <zorder>label_37</zorder>
+  <zorder>label_38</zorder>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>Auger</class>
-   <extends>QGroupBox</extends>
-   <header>customplugin</header>
-  </customwidget>
   <customwidget>
    <class>Gear</class>
    <extends>QGroupBox</extends>
