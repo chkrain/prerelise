@@ -30,19 +30,12 @@
    <item>
     <widget class="QPushButton" name="estop">
      <property name="styleSheet">
-      <string notr="true">QLabel
-{
-	border: 1px solid white;
-	border-radius: 16px;
-	color: lightGray;
-	background-color: gray;
-	padding: 8px;
-}
-QLabel:enabled
-{
-	background-color: red;
-	color: white;
-}</string>
+      <string notr="true">border: 1px solid gray;
+border-radius: 16px;
+padding: 8px;
+color: white;
+cursor: pointer;
+background: rgb(198, 70, 0);</string>
      </property>
      <property name="text">
       <string>АВАРИЙНЫЙ СТОП</string>

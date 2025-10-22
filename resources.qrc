@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="/TREPEL">
+    <file alias="bell.png">resources/bell.png</file>
+    <file>resources/i.jpeg</file>
+    <file>resources/i.jpeg</file>
     <file>resources/tune.png</file>
     <file>resources/grow.png</file>
     <file>resources/separation.png</file>

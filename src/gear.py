@@ -146,7 +146,7 @@ class GearROT(Gear):
 class GearFQ(Gear):
     """Базовый класс для конвейеров c ЧП, сита, барабана с частотным управлением"""
     fq = POU.output(int(0), hidden = False)
-    sp = POU.var(int(500), persistent=True)  #пусковая частота
+    sp = POU.var(int(150), persistent=True)  #пусковая частота
     
     def _turnon(self):
         self.fq = self.sp
@@ -177,6 +177,8 @@ class Feeder(GearFQ):
     def update_timeout(self):
         #время ожидания изменения сигнала на входе rot зависит от скорости работы. Экспериментально подобрано
         if self.q:
+            if self.fq<250:
+                self._rotating.pt = 80000
             if self.fq<500:
                 self._rotating.pt = 35000
             elif self.fq<1000:

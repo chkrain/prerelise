@@ -61,7 +61,7 @@ class FQConv():
         self.addr = addr
         self.fq  = 0
         self.on  = False
-        self.pause = 0      #пауза после запроса на чтение (чтоб результат успел прийти)
+        self.pause = 3      #пауза после запроса на чтение (чтоб результат успел прийти)
         self._fault= 0
         self._lock = allocate_lock()
         self._timeout = 0
@@ -112,6 +112,7 @@ class FQConv():
             _lock.acquire()
             if len(_queue)<MAX_QUEUE_SIZE:
                 _queue.append( REQUEST(self.addr,4,FQConv.FAULT_REG,None,callback=self.callback))
+                # print(f'_queue 2 {_queue}')
             _lock.release()
         elif timeout>0:
             self._lock.acquire()
@@ -127,4 +128,5 @@ class FQConv():
         _lock.acquire()
         if dflags & 0x0001:
             _queue.append( REQUEST(self.addr,4,FQConv.FQ_REG,self.fq,callback=self.callback) )
+            # print(f'_queue 3 {_queue}')
         _lock.release()
