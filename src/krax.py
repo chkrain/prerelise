@@ -137,18 +137,20 @@ def is_any_running()->bool:
   return False
 
 def get_lvl_pt_02():
-  T = 3
+  T = 300
+  T_convert = T * 1000 * 60
   if motor_22.state == Motor.RUN:
-    return T * 1000
+    return T_convert
   else:
-    return T * 500
+    return T_convert / 2
 
 def get_lvl_pt_38():
-  T = 3
+  T = 300
+  T_convert = T * 1000 * 60
   if motor_20.state == Motor.RUN:
-    return T * 1000
+    return T_convert
   else:
-    return T * 500
+    return T_convert / 2
 
 level_3_monitor = TON(clk=lambda: hw.HLEVEL_38, pt=get_lvl_pt_38, q=lambda timeout: setattr(motor_18, 'off', True) if timeout else None) # 3-8
  
