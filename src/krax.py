@@ -180,6 +180,21 @@ motor_18.sp = 225
 motor_19.sp = 225
 motor_20.sp = 225
 
+motor_1.startup_t = 720
+motor_2.startup_t = 10
+motor_3.startup_t = 60
+motor_4.startup_t = 10
+motor_5.startup_t = 40
+motor_6.startup_t = 10
+motor_10.startup_t = 40
+motor_11.startup_t = 60
+motor_14.startup_t = 60
+motor_15.startup_t = 10
+motor_16.startup_t = 50
+motor_17.startup_t = 10
+motor_18.startup_t = 40
+motor_19.startup_t = 40
+
 instances = (factory_1,
             mcompressor_28, 
             chain_drum, chain_8,chain_22,
