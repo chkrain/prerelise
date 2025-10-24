@@ -46,7 +46,7 @@ motor_22= GearROT(q=hw.AUGER_ON_25, fault=~hw.AUGER_ISON_25, rot=hw.AUGER_ROT_25
 motor_20= Feeder(q=hw.MOTOR_ON_20, fault=fq_20.fault, lock=hw.ROPE_20, rot=hw.BELT_20,fq=fq_20.set_fq)
 any_22_or_24 = GearAny(motor_22,motor_24)
 motor_19= Feeder(q=hw.MOTOR_ON_19, fault=fq_19.fault, lock=hw.ROPE_19, rot=hw.BELT_19,fq=fq_19.set_fq)
-motor_18= Feeder(q=hw.MOTOR_ON_18, fault=fq_18.fault, lock=hw.ROPE_18, rot=hw.BELT_18,fq=fq_18.set_fq,depends=motor_20)
+motor_18= Feeder(q=hw.MOTOR_ON_18, fault=fq_18.fault, lock=hw.ROPE_18, rot=hw.BELT_18,fq=fq_18.set_fq)
 any_18_or_19 = GearAny(motor_18,motor_19)
 motor_17= Motor(q=hw.MOTOR_ON_17,fault=~hw.MOTOR_ISON_17,depends=any_18_or_19)
 motor_16= Feeder(q=hw.MOTOR_ON_16, fault=fq_16.fault, lock=hw.ROPE_16, rot=hw.BELT_16,fq=fq_16.set_fq,depends=motor_17)
@@ -60,8 +60,7 @@ motor_10= Feeder(q=hw.MOTOR_ON_10, fault=fq_10.fault, lock=hw.ROPE_10, rot=hw.BE
 motor_9 = Motor()
 motor_8 = Feeder(q=hw.MOTOR_ON_8, fault=fq_8.fault, lock=hw.ROPE_8, rot=hw.BELT_8,fq=fq_8.set_fq)
 motor_7 = Feeder(q=hw.MOTOR_ON_7, fault=fq_7.fault, lock=hw.ROPE_7, rot=hw.BELT_7,fq=fq_7.set_fq,depends=motor_8)
-any_7_or_10 = GearAny(motor_7,motor_10)
-motor_6 = Motor(q=hw.MOTOR_ON_6,depends=any_7_or_10)
+motor_6 = Motor(q=hw.MOTOR_ON_6,depends=motor_10)
 motor_5 = Feeder(q=hw.MOTOR_ON_5, fault=fq_5.fault, lock=hw.ROPE_5, rot=hw.BELT_5,fq=fq_5.set_fq,depends=motor_6)
 motor_4 = Motor(q=hw.MOTOR_ON_4,depends=motor_5)
 motor_3 = Feeder(q=hw.MOTOR_ON_3, fault=fq_3.fault, lock=hw.ROPE_3, rot=hw.BELT_3,fq=fq_3.set_fq,depends=motor_4)
@@ -180,7 +179,7 @@ motor_18.sp = 225
 motor_19.sp = 225
 motor_20.sp = 225
 
-motor_1.startup_t = 720
+motor_1.startup_t = 3
 motor_2.startup_t = 10
 motor_3.startup_t = 60
 motor_4.startup_t = 10
