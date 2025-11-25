@@ -326,6 +326,22 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
      <string>qrc:/TREPEL/resources/iconveyor-2m.mng</string>
     </url>
    </property>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>32</x>
+      <y>156</y>
+      <width>22</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../resources.qrc">:/TREPEL/resources/green-led.png</pixmap>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="machine_2">
    <property name="enabled">
@@ -483,22 +499,6 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
      <string>qrc:/TREPEL/resources/irconveyor-2m.mng</string>
     </url>
    </property>
-   <widget class="GearFQ" name="gear_8">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>20</y>
-      <width>212</width>
-      <height>187</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Конв. на фасовку М8</string>
-    </property>
-    <property name="idx" stdset="0">
-     <number>8</number>
-    </property>
-   </widget>
    <widget class="QLabel" name="arrow_6">
     <property name="enabled">
      <bool>true</bool>
@@ -905,28 +905,6 @@ font-size: 18px;</string>
     <number>6</number>
    </property>
   </widget>
-  <widget class="Gear" name="gear_26">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>500</y>
-     <width>213</width>
-     <height>193</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>КОМПРЕССОР(28)</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-   <property name="prefix" stdset="0">
-    <string>COMPRESSOR</string>
-   </property>
-   <property name="idx" stdset="0">
-    <number>28</number>
-   </property>
-  </widget>
   <widget class="QLabel" name="scanTime">
    <property name="geometry">
     <rect>
@@ -1033,8 +1011,8 @@ font-size: 18px;</string>
   <widget class="QGroupBox" name="aspiration">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>360</y>
+     <x>310</x>
+     <y>498</y>
      <width>215</width>
      <height>133</height>
     </rect>
@@ -1506,6 +1484,639 @@ background-color: rgb(127, 127, 127);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>447</x>
+     <y>221</y>
+     <width>22</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/green-led.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>728</x>
+     <y>451</y>
+     <width>22</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/green-led.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>507</x>
+     <y>901</y>
+     <width>22</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/green-led.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>922</x>
+     <y>834</y>
+     <width>22</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/green-led.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>1113</x>
+     <y>759</y>
+     <width>22</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/resources/green-led.png</pixmap>
+   </property>
+  </widget>
+  <widget class="GearFQ" name="gear_8">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>750</y>
+     <width>212</width>
+     <height>187</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Конв. на фасовку М8</string>
+   </property>
+   <property name="idx" stdset="0">
+    <number>8</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>340</y>
+     <width>261</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(246, 97, 81);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>24</x>
+     <y>346</y>
+     <width>251</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Время провести ТО оборудования</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>136</x>
+     <y>300</y>
+     <width>24</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/TREPEL/tools_changed.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>420</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>65</x>
+     <y>420</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>420</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>135</x>
+     <y>420</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>420</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>420</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M6</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>420</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M7</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_22">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M14</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_23">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M13</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_24">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M15</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_25">
+   <property name="geometry">
+    <rect>
+     <x>65</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_26">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M8</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_27">
+   <property name="geometry">
+    <rect>
+     <x>135</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M12</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_28">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M11</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_29">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>500</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M22</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_30">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>500</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M20</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_31">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>500</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_32">
+   <property name="geometry">
+    <rect>
+     <x>65</x>
+     <y>500</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M17</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_33">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>500</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M16</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_34">
+   <property name="geometry">
+    <rect>
+     <x>135</x>
+     <y>500</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M19</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_35">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>500</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(246, 97, 81);
+background-color: rgb(249, 240, 107);</string>
+   </property>
+   <property name="text">
+    <string>M18</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
+  </widget>
   <zorder>machine_10</zorder>
   <zorder>machine_11</zorder>
   <zorder>machine_4</zorder>
@@ -1535,7 +2146,6 @@ background-color: rgb(127, 127, 127);</string>
   <zorder>gear_2</zorder>
   <zorder>gear_4</zorder>
   <zorder>gear_6</zorder>
-  <zorder>gear_26</zorder>
   <zorder>scanTime</zorder>
   <zorder>powered</zorder>
   <zorder>gear_12</zorder>
@@ -1550,27 +2160,61 @@ background-color: rgb(127, 127, 127);</string>
   <zorder>pushButton</zorder>
   <zorder>label_4</zorder>
   <zorder>label_5</zorder>
+  <zorder>label_7</zorder>
+  <zorder>label_8</zorder>
+  <zorder>label_9</zorder>
+  <zorder>label_10</zorder>
+  <zorder>label_11</zorder>
+  <zorder>gear_8</zorder>
+  <zorder>label_12</zorder>
+  <zorder>label_13</zorder>
+  <zorder>label_14</zorder>
+  <zorder>label_15</zorder>
+  <zorder>label_16</zorder>
+  <zorder>label_17</zorder>
+  <zorder>label_18</zorder>
+  <zorder>label_19</zorder>
+  <zorder>label_20</zorder>
+  <zorder>label_21</zorder>
+  <zorder>label_22</zorder>
+  <zorder>label_23</zorder>
+  <zorder>label_24</zorder>
+  <zorder>label_25</zorder>
+  <zorder>label_26</zorder>
+  <zorder>label_27</zorder>
+  <zorder>label_28</zorder>
+  <zorder>label_29</zorder>
+  <zorder>label_30</zorder>
+  <zorder>label_31</zorder>
+  <zorder>label_32</zorder>
+  <zorder>label_33</zorder>
+  <zorder>label_34</zorder>
+  <zorder>label_35</zorder>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>GearFQ</class>
+   <extends>QGroupBox</extends>
+   <header>customplugin</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>Auger</class>
    <extends>QGroupBox</extends>
    <header>customplugin</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>Gear</class>
    <extends>QGroupBox</extends>
    <header>customplugin</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>Exhauser</class>
    <extends>QGroupBox</extends>
    <header>customplugin</header>
-  </customwidget>
-  <customwidget>
-   <class>GearFQ</class>
-   <extends>QGroupBox</extends>
-   <header>customplugin</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>Animation</class>
@@ -1580,13 +2224,18 @@ background-color: rgb(127, 127, 127);</string>
   </customwidget>
   <customwidget>
    <class>RuntimeTrend</class>
-   <extends>QFrame</extends>
+   <extends>QwtPlot</extends>
    <header>pygui.runtimetrend</header>
+  </customwidget>
+  <customwidget>
+   <class>QwtPlot</class>
+   <extends>QFrame</extends>
+   <header>qwt_plot.h</header>
   </customwidget>
  </customwidgets>
  <resources>
   <include location="../resources.qrc"/>
-  <include location="../../resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections/>
 </ui>

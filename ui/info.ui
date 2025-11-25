@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>386</width>
+    <width>624</width>
     <height>55</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Информация</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="flat" stdset="0">
+   <bool>true</bool>
+  </property>
+  <property name="style" stdset="0">
+   <string/>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
@@ -34,7 +43,6 @@
 border-radius: 16px;
 padding: 8px;
 color: white;
-cursor: pointer;
 background: rgb(198, 70, 0);</string>
      </property>
      <property name="text">
@@ -57,6 +65,18 @@ background: rgb(198, 70, 0);</string>
       </size>
      </property>
     </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(237, 51, 59);
+color: rgb(248, 228, 92);
+border-radius: 15;</string>
+     </property>
+     <property name="text">
+      <string>ВКЛЮЧЕНА АВАРИЙНАЯ КНОПКА -&gt;</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label">

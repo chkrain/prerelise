@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 3,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -627,6 +627,80 @@
       ],
       "title": "ЧП",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "opentsdb",
+        "uid": "P3F9FDC87EEA6B335"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "value"
+          },
+          "custom": {
+            "displayMode": "auto"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "hours"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 6,
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Моточасы"
+          }
+        ]
+      },
+      "targets": [
+        {
+          "aggregator": "sum",
+          "datasource": {
+            "type": "opentsdb",
+            "uid": "P3F9FDC87EEA6B335"
+          },
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "metric": "motor.ctl",
+          "refId": "A",
+          "tags": {
+            "item_id": "*"
+          }
+        }
+      ],
+      "title": "Моточасы оборудования",
+      "type": "table",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "mode": "reduceRow",
+            "reduce": {
+              "reducer": "integral"
+            }
+          }
+        }
+      ]
     }
   ],
   "refresh": "5s",
@@ -636,13 +710,13 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "OVERVIEW",
-  "uid": "f4d47ce2-b2f3-405d-8d96-6d7cd97ec646",
-  "version": 8,
+  "title": "OVERVIEW WITH MOTOR HOURS",
+  "uid": "overview-motor-hours-v2",
+  "version": 2,
   "weekStart": ""
 }

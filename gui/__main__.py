@@ -1,7 +1,7 @@
 import os
 import sys
 # os.environ["QT_API"] = "pyqt6"
-sys.argv += ['--opentsdb','127.0.0.1','--grafana=127.0.0.1','--grafana_key=glsa_9UqkO45maXEGLTbU41GPA8ac1DYW3rXe_cee7e53f']
+# sys.argv += ['--opentsdb','127.0.0.1','--grafana=127.0.0.1','--grafana_key=glsa_9UqkO45maXEGLTbU41GPA8ac1DYW3rXe_cee7e53f']
 from pysca import app
 from pysca.device import PYPLC
 import pygui.multihead as navbar

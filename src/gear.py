@@ -1,7 +1,7 @@
 from pyplc.sfc import SFC,POU
 from pyplc.utils.latch import RS
 from pyplc.utils.trig import TRIG,FTRIG,RTRIG
-from pyplc.utils.misc import TOF
+from pyplc.utils.misc import TOF, TON
 
 class Gear(SFC):
     """Базовый класс для конвейеров, норий, сита, барабана"""
@@ -9,6 +9,8 @@ class Gear(SFC):
     STARTUP = 1
     RUN = 2
     STOP = 3
+    
+    MAINTENANCE_INTERVAL = 18000
     
     rdy = POU.var(False)
     on  = POU.var(False)
@@ -24,6 +26,12 @@ class Gear(SFC):
     q   = POU.output(False, hidden = True)    
     msg = POU.var('Oжидание')
     
+    moto = POU.var(int(0), persistent=True)  
+    moto_reset = POU.var(False)  # кнопка сброса моточасов
+    maintenance_required = POU.var(False)  # требуется ТО
+    maintenance_reset = POU.var(False)  # кнопка сброса предупреждения ТО
+    last_maintenance = POU.var(int(0), persistent=True)  # моточасы на последнем ТО
+    
     def __init__(self, fault: bool|None=None, q: bool|None = None, lock: bool|None = None, depends: 'Gear|None'=None, id: str|None = None, parent: POU|None = None) -> None:
         super().__init__(id, parent)
         self.state = Gear.IDLE
@@ -34,8 +42,43 @@ class Gear(SFC):
         self.depends = depends
         self._ctl = RS(reset = lambda: self.off, set = lambda: self.on, q = self.control )
         self._tst = FTRIG( clk=lambda: self.test, q = self._test)
-        self.subtasks = (self._ctl, self._tst )
+        
+        self._moto_counter = 0
+        self._last_update = POU.NOW_MS
+        
+        self.subtasks = (self._ctl, self._tst)
         self._pass = 0
+    
+    def _update_moto_hours(self):
+        """Обновление моточасов - каждую секунду при работе"""
+        current_time = POU.NOW_MS
+        if self.state == Gear.RUN:
+            if current_time - self._last_update >= 1000:  
+                self._moto_counter += 1
+                self._last_update = current_time
+                
+                if self._moto_counter >= 600:
+                    self.moto += 10
+                    self._moto_counter = 0
+                    
+                    if self.moto - self.last_maintenance >= Gear.MAINTENANCE_INTERVAL:
+                        self.maintenance_required = True
+    
+    def _reset_moto_hours(self):
+        """Сброс моточасов по кнопке"""
+        if self.moto_reset:
+            self.moto = 0
+            self._moto_counter = 0
+            self.last_maintenance = 0
+            self.maintenance_required = False
+            self.moto_reset = False
+    
+    def _reset_maintenance_warning(self):
+        """Сброс предупреждения о ТО по кнопке"""
+        if self.maintenance_reset:
+            self.last_maintenance = self.moto
+            self.maintenance_required = False
+            self.maintenance_reset = False
     
     def _test(self, on: bool):
         if on:
@@ -89,6 +132,7 @@ class Gear(SFC):
         self.state = Gear.IDLE
         self.rdy = False
         self.busy = False
+        
         yield from self.until( lambda: self.q,step='ожидаем запуска' )
         
         self.state = Gear.STARTUP
@@ -100,6 +144,10 @@ class Gear(SFC):
             yield from self.pause(1000)
             T+=1
             self.rdy = not self.rdy
+            self._update_moto_hours()  # Обновление моточасов
+            self._reset_moto_hours()   # Проверка сброса моточасов
+            self._reset_maintenance_warning()  # Проверка сброса предупреждения ТО
+            
         if T<5 or self.fault:
             self.rdy = False
             if self.q and self.fault:
@@ -111,7 +159,13 @@ class Gear(SFC):
             self.log('вышли в режим')
             self.msg = 'В режиме'
             self._begin()
-            yield from self.till(lambda: self.q and self._allowed() and not self._lock, step = 'в работе')
+            
+            while self.q and self._allowed() and not self._lock:
+                self._update_moto_hours()  # Обновление моточасов
+                self._reset_moto_hours()   # Проверка сброса моточасов
+                self._reset_maintenance_warning()  # Проверка сброса предупреждения ТО
+                yield
+                
             self._end( )
             
         self._turnoff( )
@@ -177,6 +231,10 @@ class Feeder(GearFQ):
     def update_timeout(self):
         #время ожидания изменения сигнала на входе rot зависит от скорости работы. Экспериментально подобрано
         if self.q:
+            if self.fq<20:
+                self._rotating.pt = 3200000
+            if self.fq<100:
+                self._rotating.pt = 160000
             if self.fq<250:
                 self._rotating.pt = 80000
             if self.fq<500:

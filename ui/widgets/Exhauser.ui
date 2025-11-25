@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>220</width>
-    <height>230</height>
+    <height>235</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -383,6 +383,16 @@ QLabel
         </property>
         <property name="scaledContents">
          <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../../resources.qrc">:/TREPEL/tools_changed.png</pixmap>
         </property>
        </widget>
       </item>
