@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/TREPEL">
+    <file>resources/up.png</file>
     <file>tools_changed.png</file>
     <file>трос.png</file>
     <file>tools.png</file>

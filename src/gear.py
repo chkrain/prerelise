@@ -19,7 +19,7 @@ class Gear(SFC):
     startup_t = POU.var(int(5),persistent=True)
     test = POU.var(False,hidden=True)       #тест нештатной ситуации
     rsn  = POU.var(int(0),hidden=True)      #выбор нештатной ситуации
-    manual=POU.var(True,persistent=True) #ручной режим (не учитывать depends)
+    manual=POU.var(False,persistent=True) #ручной режим (не учитывать depends)
     
     fault = POU.input(False, hidden = True)
     _lock = POU.input(False,hidden = True)

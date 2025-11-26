@@ -153,6 +153,12 @@ QCheckBox:unchecked
      <property name="text">
       <string>Моточасы</string>
      </property>
+     <property name="margin">
+      <number>15</number>
+     </property>
+     <property name="style" stdset="0">
+      <string>hint</string>
+     </property>
     </widget>
    </item>
    <item row="2" column="0" colspan="3">
@@ -195,6 +201,9 @@ QCheckBox:unchecked
       </item>
       <item>
        <widget class="QCheckBox" name="checkBox">
+        <property name="cursor">
+         <cursorShape>CrossCursor</cursorShape>
+        </property>
         <property name="layoutDirection">
          <enum>Qt::RightToLeft</enum>
         </property>
@@ -378,6 +387,9 @@ QCheckBox:unchecked
               <height>16777215</height>
              </size>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
             </property>
@@ -517,6 +529,9 @@ QCheckBox:unchecked
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
+     <property name="style" stdset="0">
+      <string>hint</string>
+     </property>
     </widget>
    </item>
    <item row="5" column="0">
@@ -571,6 +586,9 @@ QCheckBox:unchecked
           <height>16777215</height>
          </size>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
@@ -590,6 +608,9 @@ QCheckBox:unchecked
    </item>
    <item row="8" column="0">
     <widget class="QPushButton" name="pushButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(87, 227, 137);
 color: rgb(192, 28, 40);</string>
@@ -606,6 +627,9 @@ color: rgb(192, 28, 40);</string>
      </property>
      <property name="text">
       <string>0</string>
+     </property>
+     <property name="style" stdset="0">
+      <string>hint</string>
      </property>
     </widget>
    </item>
