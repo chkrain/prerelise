@@ -2554,6 +2554,179 @@ border-radius: 15px;</string>
     <pixmap resource="../resources.qrc">:/TREPEL/трос.png</pixmap>
    </property>
   </widget>
+  <widget class="QLabel" name="label_36">
+   <property name="geometry">
+    <rect>
+     <x>1380</x>
+     <y>870</y>
+     <width>521</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(46, 194, 126);
+border-radius: 15;
+</string>
+   </property>
+   <property name="text">
+    <string>Температура в пределах нормы</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_37">
+   <property name="geometry">
+    <rect>
+     <x>1380</x>
+     <y>870</y>
+     <width>521</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 120, 0);
+color: rgb(255, 255, 255);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Температура повышена, проверить дымосос и циклон</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_38">
+   <property name="geometry">
+    <rect>
+     <x>1380</x>
+     <y>870</y>
+     <width>521</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(192, 28, 40);
+color: rgb(255, 255, 255);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Температура на критическом уровне! Остановить горелку</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_39">
+   <property name="geometry">
+    <rect>
+     <x>1380</x>
+     <y>870</y>
+     <width>521</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(246, 211, 45);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Температура слегка повышена</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_40">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>250</y>
+     <width>331</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(46, 194, 126);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Влажность в пределах нормы</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_41">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>250</y>
+     <width>331</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(246, 211, 45);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Низкая влажность. Уменьшить температуру</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_42">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>250</y>
+     <width>331</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 120, 0);
+color: rgb(255, 255, 255);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Повышенная влажность. Проверь сушку</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_43">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>250</y>
+     <width>331</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(224, 27, 36);
+color: rgb(255, 255, 255);
+border-radius: 15;</string>
+   </property>
+   <property name="text">
+    <string>Высокая влажность. Проверить сушку</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>label_42</zorder>
+  <zorder>label_43</zorder>
+  <zorder>label_40</zorder>
+  <zorder>label_39</zorder>
+  <zorder>label_36</zorder>
+  <zorder>label_41</zorder>
+  <zorder>label_37</zorder>
+  <zorder>label_38</zorder>
   <zorder>machine_12</zorder>
   <zorder>machine_8</zorder>
   <zorder>label_12</zorder>
