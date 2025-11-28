@@ -310,6 +310,11 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
 	background-color: rgb(46, 194, 126);
 	color: white;
 }
+QLabel[style='licen']
+{
+	color: white;
+	font-size: 11pt;
+}
 </string>
   </property>
   <widget class="Animation" name="machine_1">
@@ -1545,7 +1550,7 @@ background-color: rgb(127, 127, 127);</string>
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>940</y>
+     <y>916</y>
      <width>22</width>
      <height>22</height>
     </rect>
@@ -2640,8 +2645,8 @@ border-radius: 15;</string>
   <widget class="QLabel" name="label_40">
    <property name="geometry">
     <rect>
-     <x>1070</x>
-     <y>250</y>
+     <x>840</x>
+     <y>240</y>
      <width>331</width>
      <height>41</height>
     </rect>
@@ -2660,8 +2665,8 @@ border-radius: 15;</string>
   <widget class="QLabel" name="label_41">
    <property name="geometry">
     <rect>
-     <x>1070</x>
-     <y>250</y>
+     <x>840</x>
+     <y>240</y>
      <width>331</width>
      <height>41</height>
     </rect>
@@ -2680,8 +2685,8 @@ border-radius: 15;</string>
   <widget class="QLabel" name="label_42">
    <property name="geometry">
     <rect>
-     <x>1070</x>
-     <y>250</y>
+     <x>840</x>
+     <y>240</y>
      <width>331</width>
      <height>41</height>
     </rect>
@@ -2701,8 +2706,8 @@ border-radius: 15;</string>
   <widget class="QLabel" name="label_43">
    <property name="geometry">
     <rect>
-     <x>1070</x>
-     <y>250</y>
+     <x>840</x>
+     <y>240</y>
      <width>331</width>
      <height>41</height>
     </rect>
@@ -2719,6 +2724,198 @@ border-radius: 15;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="label_44">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>799</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Не активирована</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_45">
+   <property name="geometry">
+    <rect>
+     <x>166</x>
+     <y>836</y>
+     <width>131</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Пробный период</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox">
+   <property name="geometry">
+    <rect>
+     <x>148</x>
+     <y>761</y>
+     <width>151</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="buttonSymbols">
+    <enum>QAbstractSpinBox::NoButtons</enum>
+   </property>
+   <property name="maximum">
+    <number>1000000000</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_46">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>870</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>t</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_47">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>759</y>
+     <width>281</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(224, 27, 36,80);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_48">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>761</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Код активации:</string>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_49">
+   <property name="geometry">
+    <rect>
+     <x>29</x>
+     <y>799</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Статус лицензии:</string>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_50">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>836</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Режим работы:</string>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_51">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>869</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Оставшееся время:</string>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_52">
+   <property name="geometry">
+    <rect>
+     <x>224</x>
+     <y>870</y>
+     <width>40</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>часов</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>licen</string>
+   </property>
+  </widget>
+  <widget class="GearFQ" name="gear_30">
+   <property name="geometry">
+    <rect>
+     <x>1190</x>
+     <y>280</y>
+     <width>214</width>
+     <height>187</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>ВЕНТИЛЯЦИЯ</string>
+   </property>
+   <property name="idx" stdset="0">
+    <number>30</number>
+   </property>
+  </widget>
+  <zorder>label_47</zorder>
   <zorder>label_42</zorder>
   <zorder>label_43</zorder>
   <zorder>label_40</zorder>
@@ -2821,6 +3018,16 @@ border-radius: 15;</string>
   <zorder>label_82</zorder>
   <zorder>label_81</zorder>
   <zorder>label_83</zorder>
+  <zorder>label_44</zorder>
+  <zorder>label_45</zorder>
+  <zorder>spinBox</zorder>
+  <zorder>label_46</zorder>
+  <zorder>label_48</zorder>
+  <zorder>label_49</zorder>
+  <zorder>label_50</zorder>
+  <zorder>label_51</zorder>
+  <zorder>label_52</zorder>
+  <zorder>gear_30</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -5,7 +5,9 @@ from pyplc.utils.misc import TON,BLINK
 from gear import Gear
 
 class Factory(POU):
-    HOUR = 18000000
+    HOUR = 3600000
+    TRIAL_HOURS = 720  
+    ACTIVATION_CODE = 798432534
 
     manual = POU.var(True)
     emergency = POU.var(False)
@@ -14,6 +16,10 @@ class Factory(POU):
     moto = POU.var(int(0),persistent=True)
     powered = POU.var(int(0),persistent=True)
     hw_emergency = POU.input(False,hidden=True)
+    
+    activated = POU.var(bool(False),persistent=True)
+    trial_over = POU.var(False)
+    activation_code = POU.var(0)
 
     def __init__(self,emergency: bool,*_,id:str = None,parent:POU=None) -> None:
         super().__init__( id,parent )
@@ -25,19 +31,47 @@ class Factory(POU):
         self.f_manual = TRIG(clk = lambda: self.manual)
         self.f_emergency = TRIG(clk = lambda: self.emergency or self.hw_emergency)
         self.f_powerack = TON(clk = lambda: self.powerack,pt=2000)
-        self.hour = TON(pt=Factory.HOUR)
+        self.hour_timer = TON(pt=Factory.HOUR)  
         self.__sec= BLINK(enable=True)
         self.moto = 0
         self.powered = 0
+        self.activated = False
+        self.trial_over = False
+        self.activation_code = 0
         self.__last_call = POU.NOW_MS
+        self.__accumulated_time = 0 
         self.on_mode = [lambda *args: self.log('ручной режим = ',*args)]
         self.on_emergency = [lambda *args: self.log('аварийный режим = ',*args)]
 
+    def check_license(self):
+        if self.activated:
+            return
+            
+        self.__accumulated_time += self.scanTime
+        
+        if self.__accumulated_time >= Factory.HOUR:
+            self.moto += 1
+            self.__accumulated_time = 0  
+            
+        if self.moto >= Factory.TRIAL_HOURS:
+            self.trial_over = True
+            self.emergency = True
+            
+        if self.activation_code == Factory.ACTIVATION_CODE:
+            self.activated = True
+            self.trial_over = False
+            self.emergency = False
+            self.log('Система активирована!')
+
     def __call__(self) :
         with self:
-            self.scanTime = POU.NOW_MS - self.__last_call
-            self.__last_call = POU.NOW_MS
+            current_time = POU.NOW_MS
+            self.scanTime = current_time - self.__last_call
+            self.__last_call = current_time
+            
+            self.check_license()  
             self.heartbeat = self.__sec( )
+            
             if self.f_manual( ):
                 for e in self.on_mode:
                     e( self.manual )
@@ -48,7 +82,7 @@ class Factory(POU):
             if self.powerfail:
                 self.powerfail = False
                 self.powered += 1
-                
+
 class ControlStation(POU):
     start = POU.input(False,hidden=True)
     stop  = POU.input(False,hidden=True)
