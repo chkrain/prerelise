@@ -2338,7 +2338,7 @@ QWidget:enabled[style=&quot;connector&quot;]
      <x>390</x>
      <y>770</y>
      <width>181</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -2350,16 +2350,19 @@ border-radius: 15px;</string>
     <string>Начните фасовку</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="margin">
+    <number>8</number>
    </property>
   </widget>
   <widget class="QLabel" name="label_50">
    <property name="geometry">
     <rect>
-     <x>1280</x>
-     <y>730</y>
-     <width>181</width>
-     <height>31</height>
+     <x>1290</x>
+     <y>740</y>
+     <width>171</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -2371,7 +2374,10 @@ border-radius: 15px;</string>
     <string>Начните фасовку</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <property name="margin">
+    <number>8</number>
    </property>
   </widget>
   <widget class="QLabel" name="label_51">
@@ -2550,7 +2556,7 @@ border-radius: 15px;</string>
   <widget class="QLabel" name="label_57">
    <property name="geometry">
     <rect>
-     <x>1470</x>
+     <x>1502</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2571,7 +2577,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_58">
    <property name="geometry">
     <rect>
-     <x>1499</x>
+     <x>1525</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2592,7 +2598,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_59">
    <property name="geometry">
     <rect>
-     <x>1531</x>
+     <x>1549</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2612,7 +2618,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_60">
    <property name="geometry">
     <rect>
-     <x>1563</x>
+     <x>1577</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2633,7 +2639,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_61">
    <property name="geometry">
     <rect>
-     <x>1710</x>
+     <x>1713</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2653,7 +2659,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_62">
    <property name="geometry">
     <rect>
-     <x>1601</x>
+     <x>1610</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2673,7 +2679,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_63">
    <property name="geometry">
     <rect>
-     <x>1672</x>
+     <x>1679</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2693,7 +2699,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_64">
    <property name="geometry">
     <rect>
-     <x>1635</x>
+     <x>1644</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -2713,7 +2719,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_65">
    <property name="geometry">
     <rect>
-     <x>1744</x>
+     <x>1745</x>
      <y>128</y>
      <width>40</width>
      <height>41</height>
@@ -3554,6 +3560,48 @@ border-radius: 15;</string>
     <number>171</number>
    </property>
   </widget>
+  <widget class="QLabel" name="label_72">
+   <property name="geometry">
+    <rect>
+     <x>1420</x>
+     <y>740</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(237, 51, 59);
+color: rgb(248, 228, 92);
+border-radius: 15px;</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_73">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>770</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(237, 51, 59);
+color: rgb(248, 228, 92);
+border-radius: 15px;</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>label_35</zorder>
   <zorder>animation</zorder>
   <zorder>label_114</zorder>
@@ -3735,6 +3783,8 @@ border-radius: 15;</string>
   <zorder>label_71</zorder>
   <zorder>label_119</zorder>
   <zorder>gearfq</zorder>
+  <zorder>label_72</zorder>
+  <zorder>label_73</zorder>
  </widget>
  <customwidgets>
   <customwidget>

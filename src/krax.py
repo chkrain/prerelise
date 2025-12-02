@@ -42,6 +42,7 @@ compressor_28 = Motor(q=hw.COMPRESSOR_ON_28,fault=~hw.COMPRESSOR_ISON_28)
 motor_30 = GearFQ(q=hw.MOTOR_ON_30, fq=fq_30.set_fq, fault=fq_30.fault)
 #motor_101 is direct controlled
 #ZONE 2
+motor_998 = Motor(q=hw.VIBRATOR_ON_1)
 motor_999 = Motor(q=hw.SIREN) # MOTOR_SIREN было, из-за idx = 999
 motor_25= Feeder(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25,fq=fq_25.set_fq)
 motor_24= Feeder(q=hw.AUGER_ON_24, rot=hw.AUGER_ROT_24,fq=fq_24.set_fq )
@@ -105,6 +106,7 @@ factory_1.on_emergency = [ g.emergency for g in emergency_stoppable ]
 def on_motor_11_run(on: bool):  #фильтр и шнек из него
   motor_12.on = on
   motor_999.off = False
+  motor_998.off = False
     
 def on_motor_19_run(on: bool):  
   motor_999.off = False
@@ -117,6 +119,7 @@ def on_motor_17_run(on: bool):
   
 def on_any_motor(on: bool):   #аспирация вкл если что-то заработало, сирена - сброс выкл
   hw.MOTOR_ON_101 = on
+  motor_30.on = on
   hw.MOTOR_OFF_101 = False
   
 def on_motor_20_run(on:bool):
@@ -152,38 +155,34 @@ def is_any_running()->bool:
     
   return False
 
-def get_lvl_pt_02():
-  T = 30
-  T_convert = T * 1000 * 60
-  if motor_22.state == Motor.RUN:
-    return T_convert
-  else:
-    return T_convert / 2
-
-def get_lvl_pt_38():
-  T = 30
-  T_convert = T * 1000 * 60
-  if motor_20.state == Motor.RUN:
-    return T_convert
-  else:
-    return T_convert / 2
-
-level_3_monitor = TON(clk=lambda: hw.HLEVEL_38, pt=get_lvl_pt_38, q=lambda timeout: setattr(motor_18, 'off', True) if timeout else None) # 3-8
+level_3_monitor = TON(clk=lambda: hw.HLEVEL_38 and motor_18.state==Motor.RUN, pt=3600000, q=lambda timeout: setattr(motor_18, 'off', True) if timeout else None) # 3-8
  
-level_4_monitor = TON(clk=lambda: hw.HLEVEL_02, pt=get_lvl_pt_02, q=lambda timeout: setattr(motor_19, 'off', True) if timeout else None) # 0-2
+level_4_monitor = TON(clk=lambda: hw.HLEVEL_02 and motor_19.state==Motor.RUN, pt=3600000, q=lambda timeout: setattr(motor_19, 'off', True) if timeout else None) # 0-2
 
 def get_siren_pt():
     if motor_11.state == Motor.RUN and (motor_12.state != Motor.RUN or motor_12.fault):
         return 2000
+    elif hw.EMERGENCY or factory_1.emergency==True:
+        return 4000
     else:
         return 10000
 
 siren_stop = TON(clk=lambda: hw.SIREN, pt=get_siren_pt, q=lambda timeout: setattr(motor_999, 'off', True) if timeout else None)
 
+vibro_stop = TON(clk=lambda: hw.VIBRATOR_ON_1, pt=10000, q=lambda timeout: setattr(motor_998, 'off', True) if timeout else None)
+
 auger_stop = TON(clk=lambda: motor_13.state==Motor.RUN, pt=30000, q=lambda timeout: setattr(motor_13, 'off', True) if timeout else None)
 
 motor_12_fault_siren = BLINK(enable=lambda: motor_11.state==Motor.RUN and (motor_12.state!=Motor.RUN or motor_12.fault), 
                             t_on=2000, t_off=2000, 
+                            q=lambda state: setattr(motor_999, 'on', state))
+
+motor_11_vibro = BLINK(enable=lambda: hw.MOTOR_ISON_11, 
+                            t_on=10000, t_off=10000, 
+                            q=lambda state: setattr(motor_998, 'on', state))
+
+emergency_fault_siren = BLINK(enable=lambda: hw.EMERGENCY==True or factory_1.emergency==True, 
+                            t_on=4000, t_off=1000, 
                             q=lambda state: setattr(motor_999, 'on', state))
 
 motor_12.sp = 1500
@@ -204,7 +203,7 @@ instances = (factory_1,
             chain_drum, chain_8,chain_22,
             mmotor_1,mmotor_1a,mmotor_2,mmotor_3,mmotor_4,mmotor_5,mmotor_6,mmotor_7,mmotor_8,mmotor_10,mmotor_11,mmotor_12,mmotor_13,
             mmotor_14,mmotor_15,mmotor_16,mmotor_17,mmotor_18,mmotor_19,mmotor_20,mmotor_22,mmotor_171,mmotor_30,
-            compressor_28, motor_999,
+            compressor_28, motor_999, motor_998,
             motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,
             any_18_or_19,any_22_or_24,
             motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,
@@ -222,7 +221,7 @@ instances = (factory_1,
             RTRIG(clk=lambda: motor_17.state==Motor.RUN,q=on_motor_17_run),
             RTRIG(clk=lambda: motor_20.state==Motor.RUN,q=on_motor_20_run),
             RTRIG(clk=lambda: motor_22.state==Motor.RUN,q=on_motor_22_run),
-            TP(clk=is_any_running,q=on_any_motor), level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, auger_stop
+            TP(clk=is_any_running,q=on_any_motor), level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, auger_stop, emergency_fault_siren, motor_11_vibro, vibro_stop
             #,fq_22,fq_24,fq_25
             )  #tuple быстее than []
 

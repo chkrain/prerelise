@@ -161,9 +161,9 @@ class Gear(SFC):
             self._begin()
             
             while self.q and self._allowed() and not self._lock:
-                self._update_moto_hours()  # Обновление моточасов
-                self._reset_moto_hours()   # Проверка сброса моточасов
-                self._reset_maintenance_warning()  # Проверка сброса предупреждения ТО
+                self._update_moto_hours() 
+                self._reset_moto_hours()   
+                self._reset_maintenance_warning() 
                 yield
                 
             self._end( )
