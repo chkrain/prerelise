@@ -118,11 +118,11 @@ class Gear(SFC):
             
     def _begin(self):
         self.log('entering working mode')
-        self.msg = 'РАБОТА'
+        self.msg = 'Работа'
         
     def _end(self):
         self.log('working working mode')
-        self.msg = 'Работа прекращена. В ожидании'
+        self.msg = 'Работа прекращена'
         
     def emergency(self,on: bool):
         self.on = False
@@ -224,7 +224,7 @@ class Feeder(GearFQ):
         if not rot and self.q:
             self.ok = False
             self.log('ошибка: нет вращения')
-            self.msg = 'Нет вращения'
+            self.msg = 'Проверить вращение'
             
         self.fail = self.fault and self.q
     
@@ -232,15 +232,15 @@ class Feeder(GearFQ):
         #время ожидания изменения сигнала на входе rot зависит от скорости работы. Экспериментально подобрано
         if self.q:
             if self.fq<20:
-                self._rotating.pt = 3200000
+                self._rotating.pt = 500000
             if self.fq<100:
-                self._rotating.pt = 160000
+                self._rotating.pt = 30000
             if self.fq<250:
-                self._rotating.pt = 80000
+                self._rotating.pt = 8000
             if self.fq<500:
-                self._rotating.pt = 35000
+                self._rotating.pt = 5000
             elif self.fq<1000:
-                self._rotating.pt = 25000
+                self._rotating.pt = 3000
             else:
                 self._rotating.pt = 10000
         

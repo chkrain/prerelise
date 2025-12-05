@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/TREPEL">
+    <file>../../БСУ-УСТАНОВКА/IP-250411/resources/images/power.png</file>
     <file>resources/up.png</file>
     <file>tools_changed.png</file>
     <file>трос.png</file>

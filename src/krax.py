@@ -38,17 +38,14 @@ fq_25 = FQConv(addr=203)
 fq_171 = FQConv(addr=171) # конвейер после грохота возвратный
 fq_30 = FQConv(addr=30) # вентиляторы
 
-compressor_28 = Motor(q=hw.COMPRESSOR_ON_28,fault=~hw.COMPRESSOR_ISON_28)
 motor_30 = GearFQ(q=hw.MOTOR_ON_30, fq=fq_30.set_fq, fault=fq_30.fault)
 #motor_101 is direct controlled
 #ZONE 2
 motor_998 = Motor(q=hw.VIBRATOR_ON_1)
 motor_999 = Motor(q=hw.SIREN) # MOTOR_SIREN было, из-за idx = 999
 motor_25= Feeder(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25,fq=fq_25.set_fq)
-motor_24= Feeder(q=hw.AUGER_ON_24, rot=hw.AUGER_ROT_24,fq=fq_24.set_fq )
 motor_22= GearROT(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25) # auger_ison_25 соответствует 22ому, но обр связь взята с 25.
 motor_20= Feeder(q=hw.MOTOR_ON_20, fault=fq_20.fault, lock=hw.ROPE_20, rot=hw.BELT_20,fq=fq_20.set_fq)
-any_22_or_24 = GearAny(motor_22,motor_24)
 motor_19= Feeder(q=hw.MOTOR_ON_19, fault=fq_19.fault, lock=hw.ROPE_19, rot=hw.BELT_19,fq=fq_19.set_fq)
 motor_18= Feeder(q=hw.MOTOR_ON_18, fault=fq_18.fault, lock=hw.ROPE_18, rot=hw.BELT_18,fq=fq_18.set_fq)
 any_18_or_19 = GearAny(motor_18,motor_19)
@@ -60,7 +57,7 @@ motor_14= Feeder(q=hw.MOTOR_ON_14, fault=fq_14.fault, lock=hw.ROPE_14, rot=hw.BE
 #ZONE 1
 motor_13= GearROT(q=hw.AUGER_ON_13,fault=~hw.AUGER_ISON_13, rot=hw.AUGER_ROT_13)
 motor_12= GearFQ(q=hw.MOTOR_ON_12, fq=fq_12.set_fq,fault=fq_12.fault)
-motor_11= GearFQ(q=hw.MOTOR_ON_11, fq=fq_11.set_fq,fault=fq_11.fault)
+motor_11= GearFQ(q=hw.MOTOR_ON_11, fq=fq_11.set_fq,fault=fq_11.fault, depends=motor_14)
 motor_10= Feeder(q=hw.MOTOR_ON_10, fault=fq_10.fault, lock=hw.ROPE_10, rot=hw.BELT_10,fq=fq_10.set_fq,depends=motor_11)
 motor_8 = Feeder(q=hw.MOTOR_ON_8, fault=fq_8.fault, lock=hw.ROPE_8, rot=hw.BELT_8,fq=fq_8.set_fq)
 motor_7 = Feeder(q=hw.MOTOR_ON_7, fault=fq_7.fault, lock=hw.ROPE_7, rot=hw.BELT_7,fq=fq_7.set_fq,depends=motor_8)
@@ -71,7 +68,6 @@ motor_3 = Feeder(q=hw.MOTOR_ON_3, fault=fq_3.fault, lock=hw.ROPE_3, rot=hw.BELT_
 motor_2 = Motor(q=hw.MOTOR_ON_2,depends=motor_3)
 motor_1 = Feeder(q=hw.MOTOR_ON_1, fault=fq_1.fault, lock=hw.ROPE_1, rot=hw.BELT_1,fq=fq_1.set_fq,depends=motor_2)
 
-mcompressor_28 = ControlPost(start=hw.START_28,stop=~hw.STOP_28,manual=hw.MAN_28,gear=compressor_28)
 mmotor_1 = ControlPost(start=hw.START_1,stop=~hw.STOP_1,manual=hw.MAN_1,gear = motor_1)
 mmotor_1a = ControlStation(start=hw.PU_START_1,stop=~hw.PU_STOP_1,gear = motor_1)
 mmotor_2 = ControlPost(start=hw.START_2,stop=~hw.STOP_2,manual=hw.MAN_2,gear = motor_2)
@@ -98,15 +94,14 @@ mmotor_30 = ControlPost(start=hw.START_30, stop=~hw.STOP_30, manual=hw.MAN_30, g
 
 chain_drum = GearChain( gears=(motor_11, motor_999) )
 chain_8 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8, motor_999) )
-chain_22 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_18,motor_19, motor_999) )
+chain_22 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_999) )
 
-emergency_stoppable = (motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,motor_14,motor_15,motor_16,motor_17,motor_171,motor_18,motor_19,motor_20,motor_22,motor_24,motor_25)
+emergency_stoppable = (motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,motor_14,motor_15,motor_16,motor_17,motor_171,motor_18,motor_19,motor_20,motor_22,motor_25,motor_30)
 factory_1.on_emergency = [ g.emergency for g in emergency_stoppable ]
 
 def on_motor_11_run(on: bool):  #фильтр и шнек из него
   motor_12.on = on
   motor_999.off = False
-  motor_998.off = False
     
 def on_motor_19_run(on: bool):  
   motor_999.off = False
@@ -123,8 +118,6 @@ def on_any_motor(on: bool):   #аспирация вкл если что-то з
   hw.MOTOR_OFF_101 = False
   
 def on_motor_20_run(on:bool):
-  compressor_28.on = on
-  compressor_28.off = False
   motor_19.off = False
 
 def on_motor_22_run(on:bool):
@@ -141,12 +134,6 @@ def if_opened_2(on: bool):
 
 def if_closed_2(off: bool):
   motor_22.off = off
-
-def auger_on(on: bool): 
-  motor_13.on = on  
-
-def auger_off(off: bool): 
-  motor_13.off = False 
 
 def is_any_running()->bool:
   for g in emergency_stoppable:
@@ -169,17 +156,9 @@ def get_siren_pt():
 
 siren_stop = TON(clk=lambda: hw.SIREN, pt=get_siren_pt, q=lambda timeout: setattr(motor_999, 'off', True) if timeout else None)
 
-vibro_stop = TON(clk=lambda: hw.VIBRATOR_ON_1, pt=10000, q=lambda timeout: setattr(motor_998, 'off', True) if timeout else None)
-
-auger_stop = TON(clk=lambda: motor_13.state==Motor.RUN, pt=30000, q=lambda timeout: setattr(motor_13, 'off', True) if timeout else None)
-
 motor_12_fault_siren = BLINK(enable=lambda: motor_11.state==Motor.RUN and (motor_12.state!=Motor.RUN or motor_12.fault), 
                             t_on=2000, t_off=2000, 
                             q=lambda state: setattr(motor_999, 'on', state))
-
-motor_11_vibro = BLINK(enable=lambda: hw.MOTOR_ISON_11, 
-                            t_on=10000, t_off=10000, 
-                            q=lambda state: setattr(motor_998, 'on', state))
 
 emergency_fault_siren = BLINK(enable=lambda: hw.EMERGENCY==True or factory_1.emergency==True, 
                             t_on=4000, t_off=1000, 
@@ -190,7 +169,7 @@ motor_1.sp = 15
 motor_3.sp = 105
 motor_5.sp = 150
 motor_10.sp = 150
-motor_11.sp = 300
+motor_11.sp = 300 
 motor_14.sp = 75
 motor_16.sp = 180
 motor_18.sp = 225
@@ -199,35 +178,31 @@ motor_20.sp = 225
 motor_30.sp = 150
 
 instances = (factory_1,
-            mcompressor_28, 
             chain_drum, chain_8,chain_22,
             mmotor_1,mmotor_1a,mmotor_2,mmotor_3,mmotor_4,mmotor_5,mmotor_6,mmotor_7,mmotor_8,mmotor_10,mmotor_11,mmotor_12,mmotor_13,
             mmotor_14,mmotor_15,mmotor_16,mmotor_17,mmotor_18,mmotor_19,mmotor_20,mmotor_22,mmotor_171,mmotor_30,
-            compressor_28, motor_999, motor_998,
+            motor_999, motor_998,
             motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,
-            any_18_or_19,any_22_or_24,
+            any_18_or_19,
             motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,
-            motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_22,motor_24,motor_25,motor_171,motor_30,
+            motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_22,motor_25,motor_171,motor_30,
             fq_1,fq_3, fq_5,fq_7,fq_8,fq_10, fq_11, fq_12,fq_14,fq_16,fq_18,fq_19,fq_20,fq_171,fq_30,
             RTRIG(clk=lambda: hw.OPENED_2==True, q=if_opened),
             RTRIG(clk=lambda: hw.OPENED_2==False, q=if_closed),
             RTRIG(clk=lambda: hw.OPENED_1==True, q=if_opened_2),
             RTRIG(clk=lambda: hw.OPENED_1==False, q=if_closed_2),
-            RTRIG(clk=lambda: motor_13.off==True, q=auger_off),
-            RTRIG(clk=lambda: motor_14.state==Motor.STOP,q=auger_on),
             RTRIG(clk=lambda: motor_11.state==Motor.RUN,q=on_motor_11_run),
             RTRIG(clk=lambda: motor_19.state==Motor.RUN,q=on_motor_19_run),
             RTRIG(clk=lambda: motor_18.state==Motor.RUN,q=on_motor_18_run),
             RTRIG(clk=lambda: motor_17.state==Motor.RUN,q=on_motor_17_run),
             RTRIG(clk=lambda: motor_20.state==Motor.RUN,q=on_motor_20_run),
             RTRIG(clk=lambda: motor_22.state==Motor.RUN,q=on_motor_22_run),
-            TP(clk=is_any_running,q=on_any_motor), level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, auger_stop, emergency_fault_siren, motor_11_vibro, vibro_stop
+            TP(clk=is_any_running,q=on_any_motor), level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, emergency_fault_siren
             #,fq_22,fq_24,fq_25
             )  #tuple быстее than []
 
 if platform == 'linux':
   from imitation import IMotor,IRotation
-  icompressor_28 = IMotor( q= hw.COMPRESSOR_ON_28, ison=hw.COMPRESSOR_ISON_28)
   ibelt_1 = IRotation( q = hw.MOTOR_ON_1, rot = hw.BELT_1 )
   ibelt_3 = IRotation( q = hw.MOTOR_ON_3, rot = hw.BELT_3 )
   ibelt_5 = IRotation( q = hw.MOTOR_ON_5, rot = hw.BELT_5 )
@@ -242,7 +217,6 @@ if platform == 'linux':
   ibelt_171 = IRotation( q = hw.MOTOR_ON_171, rot = hw.BELT_171 )
   irot_13 = IRotation( q = hw.AUGER_ON_13, rot = hw.AUGER_ROT_13 )
   irot_22 = IRotation( q = hw.AUGER_ON_22, rot = hw.AUGER_ROT_22 )
-  irot_24 = IRotation( q = hw.AUGER_ON_24, rot = hw.AUGER_ROT_24 )
   irot_25 = IRotation( q = hw.AUGER_ON_25, rot = hw.AUGER_ROT_25 )
   imotor_2 = IMotor( q = hw.MOTOR_ON_2, ison = hw.MOTOR_ISON_2)
   imotor_4 = IMotor( q = hw.MOTOR_ON_4, ison = hw.MOTOR_ISON_4)
@@ -253,10 +227,9 @@ if platform == 'linux':
   imotor_17 = IMotor( q = hw.MOTOR_ON_17, ison = hw.MOTOR_ISON_17)
   plc.force(EMERGENCY = False, PU_STOP_1=True, PU_STOP_2 = True)
 
-  instances += (icompressor_28,
-                ibelt_1,ibelt_3,ibelt_5,ibelt_7,ibelt_8,ibelt_10,
+  instances += (ibelt_1,ibelt_3,ibelt_5,ibelt_7,ibelt_8,ibelt_10,
                 ibelt_14, ibelt_16, ibelt_18, ibelt_19, ibelt_20,
-                irot_13,  irot_22, irot_24, irot_25,
+                irot_13,  irot_22, irot_25,
                 imotor_2,imotor_4,imotor_6,imotor_11,imotor_13,imotor_15,imotor_17,ibelt_171)
   
 plc.run( instances=instances, ctx=globals() )

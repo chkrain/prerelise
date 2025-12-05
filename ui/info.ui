@@ -27,7 +27,7 @@
     <widget class="QLabel" name="label_3">
      <property name="styleSheet">
       <string notr="true">background-color: rgba(46, 194, 126,140);
-border-radius: 15;
+border-radius: 5;
 color: white;
 padding: 0 12px;</string>
      </property>
@@ -40,7 +40,7 @@ padding: 0 12px;</string>
     <widget class="QLabel" name="label_4">
      <property name="styleSheet">
       <string notr="true">background-color: rgba(224, 27, 36,175);
-border-radius: 15;
+border-radius: 5;
 color: white;
 padding: 0 12px;</string>
      </property>
@@ -66,7 +66,7 @@ padding: 0 12px;</string>
     <widget class="QPushButton" name="estop">
      <property name="styleSheet">
       <string notr="true">border: 1px solid gray;
-border-radius: 16px;
+border-radius: 5px;
 padding: 8px;
 color: white;
 background: rgb(198, 70, 0);</string>
@@ -97,7 +97,7 @@ background: rgb(198, 70, 0);</string>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(237, 51, 59);
 color: rgb(248, 228, 92);
-border-radius: 15;</string>
+border-radius: 5;</string>
      </property>
      <property name="text">
       <string>ВКЛЮЧЕНА АВАРИЙНАЯ КНОПКА -&gt;</string>
@@ -113,7 +113,7 @@ border-radius: 15;</string>
       <string notr="true">QLabel
 {
 	border: 1px solid gray;
-	border-radius: 16px;
+	border-radius: 5px;
 	color: lightGray;
 	background-color: gray;
 	padding: 8px;

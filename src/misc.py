@@ -7,6 +7,7 @@ from gear import Gear
 class Factory(POU):
     HOUR = 3600000
     TRIAL_HOURS = 720  
+    # RENEWAL_CODE = ['12345'] продолжить логику
     ACTIVATION_CODE = 798432534
 
     manual = POU.var(True)
@@ -124,12 +125,9 @@ class GearAny():
         self.state = Gear.IDLE
         
     def __call__(self):
-        if self.first.state == Gear.RUN:
+        if self.first.state == Gear.RUN and self.second.state == Gear.RUN:
             self.state = Gear.RUN
-            self.fault = self.first.fault
-        elif self.second.state == Gear.RUN:
-            self.state = Gear.RUN
-            self.fault = self.second.fault            
+            self.fault = False         
         else:
             self.state = Gear.IDLE
             self.fault = False
