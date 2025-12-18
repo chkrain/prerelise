@@ -17,11 +17,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Контроль</string>
+   <string>Инструкция</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
-    <normaloff>:/TREPEL/resources/grow.png</normaloff>:/TREPEL/resources/grow.png</iconset>
+    <normaloff>:/TREPEL/resources/strength.png</normaloff>:/TREPEL/resources/strength.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">#centralwidget,#Zone_3
@@ -124,8 +124,8 @@ QAbstractButton:flat::checked[style=&quot;warning&quot;]
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QWebEngineView" name="webEngineView">
-     <property name="url">
+    <widget class="QWebEngineView" name="webEngineView" native="true">
+     <property name="url" stdset="0">
       <url>
        <string>file:///home/user/Downloads/instruction-main/index.html</string>
       </url>

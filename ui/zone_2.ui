@@ -137,6 +137,10 @@ QWidget:enabled[style=&quot;connector&quot;]
 {
 	color: green;
 }
+QLabel[style=&quot;jir&quot;]
+{
+	font: 1507 10pt &quot;Ubuntu Sans&quot;;
+}
 </string>
   </property>
   <widget class="Animation" name="machine_14">
@@ -2395,6 +2399,9 @@ border-radius: 5px;</string>
    <property name="margin">
     <number>8</number>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_54">
    <property name="geometry">
@@ -2416,6 +2423,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_55">
    <property name="geometry">
@@ -2436,6 +2446,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="Animation" name="valve_3">
@@ -2504,6 +2517,9 @@ border-radius: 5px;</string>
    <property name="margin">
     <number>8</number>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_57">
    <property name="geometry">
@@ -2524,6 +2540,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_58">
@@ -2546,6 +2565,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_59">
    <property name="geometry">
@@ -2565,6 +2587,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_60">
@@ -2587,6 +2612,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_61">
    <property name="geometry">
@@ -2606,6 +2634,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_62">
@@ -2627,6 +2658,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_63">
    <property name="geometry">
@@ -2646,6 +2680,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_64">
@@ -2667,6 +2704,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_65">
    <property name="geometry">
@@ -2687,20 +2727,23 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_66">
    <property name="geometry">
     <rect>
      <x>1540</x>
-     <y>400</y>
+     <y>500</y>
      <width>331</width>
-     <height>91</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(237, 51, 59);
 color: rgb(248, 228, 92);
-border-radius: 5px;</string>
+font: 1507 10pt &quot;Ubuntu Sans&quot;;</string>
    </property>
    <property name="text">
     <string>НАЖАТА КНОПКА АВАРИЙНОГО ОСТАНОВА</string>
@@ -2713,9 +2756,9 @@ border-radius: 5px;</string>
    <property name="geometry">
     <rect>
      <x>1540</x>
-     <y>500</y>
+     <y>540</y>
      <width>331</width>
-     <height>91</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -2728,6 +2771,9 @@ border-radius: 5px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_26">
@@ -2914,6 +2960,9 @@ border-radius: 5px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_94">
    <property name="geometry">
@@ -2935,6 +2984,9 @@ border-radius: 5px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="Gear" name="gear">
    <property name="geometry">
@@ -2949,7 +3001,7 @@ border-radius: 5px;</string>
     <string>ШНЕК 22</string>
    </property>
    <property name="idx" stdset="0">
-    <number>22</number>
+    <number>25</number>
    </property>
   </widget>
   <widget class="QLabel" name="label_79">
@@ -3535,6 +3587,9 @@ border-radius: 5px;</string>
    <property name="margin">
     <number>8</number>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_75">
    <property name="geometry">
@@ -3555,6 +3610,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_76">
@@ -3577,6 +3635,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_77">
    <property name="geometry">
@@ -3597,6 +3658,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_80">
@@ -3619,6 +3683,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_81">
    <property name="geometry">
@@ -3639,6 +3706,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_83">
@@ -3661,6 +3731,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_84">
    <property name="geometry">
@@ -3681,6 +3754,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_85">
@@ -3703,6 +3779,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_86">
    <property name="geometry">
@@ -3723,6 +3802,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_87">
@@ -3745,6 +3827,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_88">
    <property name="geometry">
@@ -3765,6 +3850,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_90">
@@ -3787,6 +3875,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_120">
    <property name="geometry">
@@ -3807,6 +3898,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_121">
@@ -3829,6 +3923,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_122">
    <property name="geometry">
@@ -3849,6 +3946,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_123">
@@ -3877,6 +3977,9 @@ color: rgb(248, 228, 92);</string>
    <property name="margin">
     <number>8</number>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_124">
    <property name="geometry">
@@ -3897,6 +4000,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_125">
@@ -3919,6 +4025,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_126">
    <property name="geometry">
@@ -3939,6 +4048,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_127">
@@ -3961,6 +4073,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_128">
    <property name="geometry">
@@ -3981,6 +4096,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_129">
@@ -4003,6 +4121,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_130">
    <property name="geometry">
@@ -4023,6 +4144,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_131">
@@ -4045,6 +4169,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_132">
    <property name="geometry">
@@ -4065,6 +4192,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_133">
@@ -4087,6 +4217,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_134">
    <property name="geometry">
@@ -4107,6 +4240,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_135">
@@ -4129,6 +4265,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_136">
    <property name="geometry">
@@ -4149,6 +4288,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_137">
@@ -4171,6 +4313,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_138">
    <property name="geometry">
@@ -4191,6 +4336,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_139">
@@ -4213,6 +4361,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_140">
    <property name="geometry">
@@ -4234,6 +4385,9 @@ border-radius: 20px;</string>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_141">
    <property name="geometry">
@@ -4254,6 +4408,9 @@ border-radius: 20px;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_142">
@@ -4282,6 +4439,9 @@ color: rgb(248, 228, 92);</string>
    <property name="margin">
     <number>8</number>
    </property>
+   <property name="style" stdset="0">
+    <string>jir</string>
+   </property>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
@@ -4309,6 +4469,9 @@ border-radius: 5px;</string>
       <property name="margin">
        <number>8</number>
       </property>
+      <property name="style" stdset="0">
+       <string>jir</string>
+      </property>
      </widget>
     </item>
     <item>
@@ -4323,6 +4486,9 @@ border-radius: 5px;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+      <property name="style" stdset="0">
+       <string>jir</string>
       </property>
      </widget>
     </item>
@@ -4354,6 +4520,9 @@ border-radius: 5px;</string>
       <property name="margin">
        <number>8</number>
       </property>
+      <property name="style" stdset="0">
+       <string>jir</string>
+      </property>
      </widget>
     </item>
     <item>
@@ -4369,9 +4538,116 @@ border-radius: 5px;</string>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
+      <property name="style" stdset="0">
+       <string>jir</string>
+      </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_143">
+   <property name="geometry">
+    <rect>
+     <x>1546</x>
+     <y>405</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 63 12pt &quot;Ubuntu Sans&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_144">
+   <property name="geometry">
+    <rect>
+     <x>1630</x>
+     <y>399</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="checkpoint_41">
+   <property name="geometry">
+    <rect>
+     <x>1580</x>
+     <y>399</y>
+     <width>42</width>
+     <height>42</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ВВ</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>checkpoint</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_145">
+   <property name="geometry">
+    <rect>
+     <x>1546</x>
+     <y>454</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 63 12pt &quot;Ubuntu Sans&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_146">
+   <property name="geometry">
+    <rect>
+     <x>1630</x>
+     <y>448</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="checkpoint_43">
+   <property name="geometry">
+    <rect>
+     <x>1580</x>
+     <y>448</y>
+     <width>42</width>
+     <height>42</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ВК</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="style" stdset="0">
+    <string>checkpoint</string>
+   </property>
   </widget>
   <zorder>label_89</zorder>
   <zorder>label_35</zorder>
@@ -4590,6 +4866,12 @@ border-radius: 5px;</string>
   <zorder>label_142</zorder>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>horizontalLayoutWidget_2</zorder>
+  <zorder>label_143</zorder>
+  <zorder>label_144</zorder>
+  <zorder>checkpoint_41</zorder>
+  <zorder>label_145</zorder>
+  <zorder>label_146</zorder>
+  <zorder>checkpoint_43</zorder>
  </widget>
  <customwidgets>
   <customwidget>

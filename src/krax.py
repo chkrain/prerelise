@@ -32,19 +32,13 @@ fq_16 = FQConv(addr=6)
 fq_18 = FQConv(addr=12) 
 fq_19 = FQConv(addr=13)
 fq_20 = FQConv(addr=7)
-# fq_22 = FQConv(addr=201)
-fq_24 = FQConv(addr=202)
-fq_25 = FQConv(addr=203)
 fq_171 = FQConv(addr=171) # конвейер после грохота возвратный
 fq_30 = FQConv(addr=30) # вентиляторы
 
 motor_30 = GearFQ(q=hw.MOTOR_ON_30, fq=fq_30.set_fq, fault=fq_30.fault)
-#motor_101 is direct controlled
-#ZONE 2
 motor_998 = Motor(q=hw.VIBRATOR_ON_1)
-motor_999 = Motor(q=hw.SIREN) # MOTOR_SIREN было, из-за idx = 999
-motor_25= Feeder(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25,fq=fq_25.set_fq)
-motor_22= GearROT(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25) # auger_ison_25 соответствует 22ому, но обр связь взята с 25.
+motor_999 = Motor(q=hw.SIREN)
+motor_25= GearROT(q=hw.AUGER_ON_25, rot=hw.AUGER_ROT_25) # auger_ison_25 соответствует 22ому, но обр связь взята с 25.
 motor_20= Feeder(q=hw.MOTOR_ON_20, fault=fq_20.fault, lock=hw.ROPE_20, rot=hw.BELT_20,fq=fq_20.set_fq)
 motor_19= Feeder(q=hw.MOTOR_ON_19, fault=fq_19.fault, lock=hw.ROPE_19, rot=hw.BELT_19,fq=fq_19.set_fq)
 motor_18= Feeder(q=hw.MOTOR_ON_18, fault=fq_18.fault, lock=hw.ROPE_18, rot=hw.BELT_18,fq=fq_18.set_fq)
@@ -89,19 +83,23 @@ mmotor_171 = ControlPost(start=hw.START_171, stop=~hw.STOP_171, manual=hw.MAN_17
 mmotor_18 = ControlPost(start=hw.START_18,stop=~hw.STOP_18,manual=hw.MAN_18,gear = motor_18)
 mmotor_19 = ControlPost(start=hw.START_19,stop=~hw.STOP_19,manual=hw.MAN_19,gear = motor_19)
 mmotor_20 = ControlPost(start=hw.START_20,stop=~hw.STOP_20,manual=hw.MAN_20,gear = motor_20)
-mmotor_22 = ControlPost(start=hw.START_25,stop=~hw.STOP_25,manual=hw.MAN_25,gear = motor_22)
+mmotor_25 = ControlPost(start=hw.START_25,stop=~hw.STOP_25,manual=hw.MAN_25,gear = motor_25)
 mmotor_30 = ControlPost(start=hw.START_30, stop=~hw.STOP_30, manual=hw.MAN_30, gear=motor_30)
 
 chain_drum = GearChain( gears=(motor_11, motor_999) )
 chain_8 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8, motor_999) )
 chain_22 = GearChain( gears=(motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_10,motor_11,motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_999) )
 
-emergency_stoppable = (motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,motor_14,motor_15,motor_16,motor_17,motor_171,motor_18,motor_19,motor_20,motor_22,motor_25,motor_30)
+emergency_stoppable = (motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,motor_14,motor_15,motor_16,motor_17,motor_171,motor_18,motor_19,motor_20,motor_25,motor_30)
 factory_1.on_emergency = [ g.emergency for g in emergency_stoppable ]
 
-def on_motor_11_run(on: bool):  #фильтр и шнек из него
+def on_motor_11_run(on: bool): 
   motor_12.on = on
+  motor_30.on = on
+  hw.MOTOR_ON_101 = on
   motor_999.off = False
+  hw.MOTOR_OFF_101 = False
+  motor_30.off = False
     
 def on_motor_19_run(on: bool):  
   motor_999.off = False
@@ -112,28 +110,23 @@ def on_motor_18_run(on: bool):
 def on_motor_17_run(on: bool):  
   motor_171.on = on
   
-def on_any_motor(on: bool):   #аспирация вкл если что-то заработало, сирена - сброс выкл
-  hw.MOTOR_ON_101 = on
-  motor_30.on = on
-  hw.MOTOR_OFF_101 = False
-  
 def on_motor_20_run(on:bool):
   motor_19.off = False
 
 def on_motor_22_run(on:bool):
   motor_18.off = False
 
-def if_opened(on: bool): # концевик открыт
+def if_opened(on: bool): 
   motor_20.on = on
 
 def if_closed(off: bool):
   motor_20.off = off
   
 def if_opened_2(on: bool): 
-  motor_22.on = on  
+  motor_25.on = on  
 
 def if_closed_2(off: bool):
-  motor_22.off = off
+  motor_25.off = off
 
 def is_any_running()->bool:
   for g in emergency_stoppable:
@@ -152,7 +145,7 @@ def get_siren_pt():
     elif hw.EMERGENCY or factory_1.emergency==True:
         return 4000
     else:
-        return 10000
+        return 8000
 
 siren_stop = TON(clk=lambda: hw.SIREN, pt=get_siren_pt, q=lambda timeout: setattr(motor_999, 'off', True) if timeout else None)
 
@@ -170,22 +163,23 @@ motor_3.sp = 105
 motor_5.sp = 150
 motor_10.sp = 150
 motor_11.sp = 300 
-motor_14.sp = 75
+motor_14.sp = 90
 motor_16.sp = 180
-motor_18.sp = 225
-motor_19.sp = 225
-motor_20.sp = 225
-motor_30.sp = 150
+motor_18.sp = 300
+motor_19.sp = 300
+motor_20.sp = 300
+motor_30.sp = 800
+motor_171.sp = 1500
 
 instances = (factory_1,
             chain_drum, chain_8,chain_22,
             mmotor_1,mmotor_1a,mmotor_2,mmotor_3,mmotor_4,mmotor_5,mmotor_6,mmotor_7,mmotor_8,mmotor_10,mmotor_11,mmotor_12,mmotor_13,
-            mmotor_14,mmotor_15,mmotor_16,mmotor_17,mmotor_18,mmotor_19,mmotor_20,mmotor_22,mmotor_171,mmotor_30,
+            mmotor_14,mmotor_15,mmotor_16,mmotor_17,mmotor_18,mmotor_19,mmotor_20,mmotor_25,mmotor_171,mmotor_30,
             motor_999, motor_998,
             motor_1,motor_2,motor_3,motor_4,motor_5,motor_6,
             any_18_or_19,
             motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,
-            motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_22,motor_25,motor_171,motor_30,
+            motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_25,motor_171,motor_30,
             fq_1,fq_3, fq_5,fq_7,fq_8,fq_10, fq_11, fq_12,fq_14,fq_16,fq_18,fq_19,fq_20,fq_171,fq_30,
             RTRIG(clk=lambda: hw.OPENED_2==True, q=if_opened),
             RTRIG(clk=lambda: hw.OPENED_2==False, q=if_closed),
@@ -196,9 +190,8 @@ instances = (factory_1,
             RTRIG(clk=lambda: motor_18.state==Motor.RUN,q=on_motor_18_run),
             RTRIG(clk=lambda: motor_17.state==Motor.RUN,q=on_motor_17_run),
             RTRIG(clk=lambda: motor_20.state==Motor.RUN,q=on_motor_20_run),
-            RTRIG(clk=lambda: motor_22.state==Motor.RUN,q=on_motor_22_run),
-            TP(clk=is_any_running,q=on_any_motor), level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, emergency_fault_siren
-            #,fq_22,fq_24,fq_25
+            RTRIG(clk=lambda: motor_25.state==Motor.RUN,q=on_motor_22_run),
+            level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, emergency_fault_siren
             )  #tuple быстее than []
 
 if platform == 'linux':

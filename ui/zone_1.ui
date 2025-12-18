@@ -2051,7 +2051,7 @@ background-color: rgb(249, 240, 107);</string>
 background-color: rgb(249, 240, 107);</string>
    </property>
    <property name="text">
-    <string>M22</string>
+    <string>ВВ</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -2103,7 +2103,7 @@ background-color: rgb(249, 240, 107);</string>
 background-color: rgb(249, 240, 107);</string>
    </property>
    <property name="text">
-    <string>0</string>
+    <string>ВК</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -2760,7 +2760,7 @@ border-radius: 5;</string>
   <widget class="QLabel" name="label_46">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>242</x>
      <y>870</y>
      <width>41</width>
      <height>20</height>
@@ -2845,31 +2845,12 @@ border-radius: 5;</string>
     <rect>
      <x>30</x>
      <y>869</y>
-     <width>141</width>
+     <width>181</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Оставшееся время:</string>
-   </property>
-   <property name="style" stdset="0">
-    <string>licen</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_52">
-   <property name="geometry">
-    <rect>
-     <x>224</x>
-     <y>870</y>
-     <width>40</width>
-     <height>19</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>часов</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <string>Оставшееся время [час]:</string>
    </property>
    <property name="style" stdset="0">
     <string>licen</string>
@@ -3123,7 +3104,6 @@ border-radius: 5;</string>
   <zorder>label_49</zorder>
   <zorder>label_50</zorder>
   <zorder>label_51</zorder>
-  <zorder>label_52</zorder>
   <zorder>gear_30</zorder>
   <zorder>label_57</zorder>
   <zorder>pushButton_4</zorder>
