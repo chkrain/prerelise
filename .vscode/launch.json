@@ -11,7 +11,7 @@
             "request": "launch",
             "module": "gui",
             "env": {"PYTHONPYCACHEPREFIX": "${workspaceFolder}/__pycache__"},
-            "args": ["--device","192.168.2.10"]
+            "args": ["--device","192.168.8.10"]
         },
         {
             "name": "Simulator",

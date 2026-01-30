@@ -6,8 +6,7 @@ from gear import Gear
 
 class Factory(POU):
     HOUR = 3600000
-    TRIAL_HOURS = 720  
-    RENEWAL_CODE = ['12345'] #######
+    TRIAL_HOURS = 8640
     ACTIVATION_CODE = 798432534
 
     manual = POU.var(True)

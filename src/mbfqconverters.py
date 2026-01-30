@@ -111,7 +111,6 @@ class FQConv():
             self.pause = 5
             _lock.acquire()
             if len(_queue)<MAX_QUEUE_SIZE:
-                print(f'MAX_QUEUE_SIZE')
                 _queue.append( REQUEST(self.addr,4,FQConv.FAULT_REG,None,callback=self.callback))
             _lock.release()
         elif timeout>0:
@@ -128,5 +127,4 @@ class FQConv():
         _lock.acquire()
         if dflags & 0x0001:
             _queue.append( REQUEST(self.addr,4,FQConv.FQ_REG,self.fq,callback=self.callback) )
-            # print(f'_queue 3 {_queue}')
         _lock.release()

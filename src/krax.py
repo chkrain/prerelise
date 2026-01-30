@@ -95,11 +95,9 @@ factory_1.on_emergency = [ g.emergency for g in emergency_stoppable ]
 
 def on_motor_11_run(on: bool): 
   motor_12.on = on
-  motor_30.on = on
   hw.MOTOR_ON_101 = on
   motor_999.off = False
   hw.MOTOR_OFF_101 = False
-  motor_30.off = False
     
 def on_motor_19_run(on: bool):  
   motor_999.off = False

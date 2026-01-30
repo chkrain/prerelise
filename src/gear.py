@@ -26,8 +26,7 @@ class Gear(SFC):
     q   = POU.output(False, hidden = True)    
     msg = POU.var('Oжидание')
     
-    moto = POU.var(int(0), persistent=True)  
-    moto_reset = POU.var(False)  # кнопка сброса моточасов
+    moto = POU.var(int(0), persistent=True)
     maintenance_required = POU.var(False)  # требуется ТО
     maintenance_reset = POU.var(False)  # кнопка сброса предупреждения ТО
     last_maintenance = POU.var(int(0), persistent=True)  # моточасы на последнем ТО
@@ -57,21 +56,12 @@ class Gear(SFC):
                 self._moto_counter += 1
                 self._last_update = current_time
                 
-                if self._moto_counter >= 600:
-                    self.moto += 10
+                if self._moto_counter >= 28800:
+                    self.moto += 1
                     self._moto_counter = 0
                     
                     if self.moto - self.last_maintenance >= Gear.MAINTENANCE_INTERVAL:
                         self.maintenance_required = True
-    
-    def _reset_moto_hours(self):
-        """Сброс моточасов по кнопке"""
-        if self.moto_reset:
-            self.moto = 0
-            self._moto_counter = 0
-            self.last_maintenance = 0
-            self.maintenance_required = False
-            self.moto_reset = False
     
     def _reset_maintenance_warning(self):
         """Сброс предупреждения о ТО по кнопке"""
@@ -145,7 +135,6 @@ class Gear(SFC):
             T+=1
             self.rdy = not self.rdy
             self._update_moto_hours()  # Обновление моточасов
-            self._reset_moto_hours()   # Проверка сброса моточасов
             self._reset_maintenance_warning()  # Проверка сброса предупреждения ТО
             
         if T<5 or self.fault:
@@ -161,9 +150,8 @@ class Gear(SFC):
             self._begin()
             
             while self.q and self._allowed() and not self._lock:
-                self._update_moto_hours() 
-                self._reset_moto_hours()   
-                self._reset_maintenance_warning() 
+                self._update_moto_hours()
+                self._reset_maintenance_warning()
                 yield
                 
             self._end( )
