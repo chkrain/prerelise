@@ -53,7 +53,7 @@ class Gear(SFC):
         """Обновление моточасов - каждую секунду при работе"""
         current_time = POU.NOW_MS
         if self.state == Gear.RUN:
-            if current_time - self._last_update >= 1000:  
+            if current_time - self._last_update >= 10:  
                 self._moto_counter += 1
                 self._last_update = current_time
                 
@@ -336,3 +336,4 @@ class GearChain(SFC):
                 self.exec(self._stop() )
             else:
                 self.state=GearChain.IDLE
+

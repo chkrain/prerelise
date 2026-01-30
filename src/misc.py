@@ -7,7 +7,7 @@ from gear import Gear
 class Factory(POU):
     HOUR = 3600000
     TRIAL_HOURS = 720  
-    # RENEWAL_CODE = ['12345'] продолжить логику
+    RENEWAL_CODE = ['12345'] #######
     ACTIVATION_CODE = 798432534
 
     manual = POU.var(True)
@@ -62,7 +62,6 @@ class Factory(POU):
             self.activated = True
             self.trial_over = False
             self.emergency = False
-            self.log('Система активирована!')
 
     def __call__(self) :
         with self:
