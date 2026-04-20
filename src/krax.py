@@ -6,7 +6,7 @@ from sys import platform
 from project import name as project_name,version_short as project_version
 from gear import Gear as Motor, Feeder,GearFQ,GearROT,GearChain
 from mbfqconverters import FQConv
-from misc import Factory,ControlPost,ControlStation, GearAny
+from misc import Factory,ControlPost,ControlStation, GearAny, Humidity
 from pyplc.utils.misc import TON
 from pyplc.sfc import SFC,POU
 
@@ -133,15 +133,22 @@ def is_any_running()->bool:
     
   return False
 
+def heartbeat():
+  hw.HEARTBEAT = not hw.HEARTBEAT
+
 level_3_monitor = TON(clk=lambda: hw.HLEVEL_38 and motor_18.state==Motor.RUN, pt=3600000, q=lambda timeout: setattr(motor_18, 'off', True) if timeout else None) # 3-8
  
 level_4_monitor = TON(clk=lambda: hw.HLEVEL_02 and motor_19.state==Motor.RUN, pt=3600000, q=lambda timeout: setattr(motor_19, 'off', True) if timeout else None) # 0-2
+
+humidity_setpoint = Humidity(setpoint=10.0)
 
 def get_siren_pt():
     if motor_11.state == Motor.RUN and (motor_12.state != Motor.RUN or motor_12.fault):
         return 2000
     elif hw.EMERGENCY or factory_1.emergency==True:
         return 4000
+    elif hw.H1 > humidity_setpoint.setpoint: 
+        return 6000
     else:
         return 8000
 
@@ -154,6 +161,8 @@ motor_12_fault_siren = BLINK(enable=lambda: motor_11.state==Motor.RUN and (motor
 emergency_fault_siren = BLINK(enable=lambda: hw.EMERGENCY==True or factory_1.emergency==True, 
                             t_on=4000, t_off=1000, 
                             q=lambda state: setattr(motor_999, 'on', state))
+
+humidity_fault_siren = BLINK(enable=lambda: hw.H1 > humidity_setpoint.setpoint, t_on = 6000, t_off=1000, q=lambda state: setattr(motor_999, 'on', state))
 
 motor_12.sp = 1500
 motor_1.sp = 15
@@ -189,7 +198,9 @@ instances = (factory_1,
             RTRIG(clk=lambda: motor_17.state==Motor.RUN,q=on_motor_17_run),
             RTRIG(clk=lambda: motor_20.state==Motor.RUN,q=on_motor_20_run),
             RTRIG(clk=lambda: motor_25.state==Motor.RUN,q=on_motor_22_run),
-            level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, emergency_fault_siren
+            level_3_monitor, level_4_monitor, siren_stop, motor_12_fault_siren, emergency_fault_siren,
+            humidity_setpoint, humidity_fault_siren,
+            heartbeat
             )  #tuple быстее than []
 
 if platform == 'linux':

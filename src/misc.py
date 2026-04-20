@@ -129,3 +129,17 @@ class GearAny():
         else:
             self.state = Gear.IDLE
             self.fault = False
+
+class Humidity(POU):
+    """Класс для хранения задания влажности"""
+    
+    setpoint = POU.var(10.0, persistent=True)  # начальное значение 0.0
+    
+    def __init__(self, setpoint: float = 0.0, id: str = None, parent: 'POU' = None) -> None:
+        super().__init__(id=id, parent=parent)
+        # Принудительно устанавливаем значение как float
+        self.__values__[self.__class__.setpoint._index] = float(setpoint)   
+    
+    def __enter__(self):
+        super().__enter__()
+        return self

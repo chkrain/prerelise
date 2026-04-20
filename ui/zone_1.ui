@@ -2682,10 +2682,10 @@ border-radius: 5;</string>
   <widget class="QLabel" name="label_43">
    <property name="geometry">
     <rect>
-     <x>840</x>
-     <y>240</y>
-     <width>331</width>
-     <height>41</height>
+     <x>850</x>
+     <y>110</y>
+     <width>581</width>
+     <height>151</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -2997,9 +2997,27 @@ border-radius: 5;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QSpinBox" name="spinBox_2">
+   <property name="geometry">
+    <rect>
+     <x>1430</x>
+     <y>280</y>
+     <width>151</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="buttonSymbols">
+    <enum>QAbstractSpinBox::NoButtons</enum>
+   </property>
+   <property name="maximum">
+    <number>1000000000</number>
+   </property>
+  </widget>
   <zorder>label_39</zorder>
   <zorder>label_38</zorder>
-  <zorder>label_43</zorder>
   <zorder>label_60</zorder>
   <zorder>label_47</zorder>
   <zorder>machine_12</zorder>
@@ -3108,6 +3126,8 @@ border-radius: 5;</string>
   <zorder>label_57</zorder>
   <zorder>pushButton_4</zorder>
   <zorder>label_56</zorder>
+  <zorder>label_43</zorder>
+  <zorder>spinBox_2</zorder>
  </widget>
  <customwidgets>
   <customwidget>
