@@ -2682,10 +2682,10 @@ border-radius: 5;</string>
   <widget class="QLabel" name="label_43">
    <property name="geometry">
     <rect>
-     <x>850</x>
-     <y>110</y>
-     <width>581</width>
-     <height>151</height>
+     <x>858</x>
+     <y>15</y>
+     <width>321</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -3000,10 +3000,10 @@ border-radius: 5;</string>
   <widget class="QSpinBox" name="spinBox_2">
    <property name="geometry">
     <rect>
-     <x>1430</x>
-     <y>280</y>
-     <width>151</width>
-     <height>28</height>
+     <x>1017</x>
+     <y>232</y>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="alignment">
@@ -3016,6 +3016,74 @@ border-radius: 5;</string>
     <number>1000000000</number>
    </property>
   </widget>
+  <widget class="QLabel" name="label_36">
+   <property name="geometry">
+    <rect>
+     <x>864</x>
+     <y>239</y>
+     <width>144</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 14px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Установка влажности:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="prefix" stdset="0">
+    <string>Влажность:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_37">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>232</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(98, 160, 234);
+border-radius: 4px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="prefix" stdset="0">
+    <string>Влажность:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_52">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>17</y>
+     <width>321</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(224, 27, 36);
+color: rgb(255, 255, 255);
+border-radius: 5;</string>
+   </property>
+   <property name="text">
+    <string>Влажность равна максимальному&lt;br&gt;уровню задания.</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>label_37</zorder>
   <zorder>label_39</zorder>
   <zorder>label_38</zorder>
   <zorder>label_60</zorder>
@@ -3128,6 +3196,8 @@ border-radius: 5;</string>
   <zorder>label_56</zorder>
   <zorder>label_43</zorder>
   <zorder>spinBox_2</zorder>
+  <zorder>label_36</zorder>
+  <zorder>label_52</zorder>
  </widget>
  <customwidgets>
   <customwidget>

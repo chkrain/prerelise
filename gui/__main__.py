@@ -33,7 +33,7 @@ def main():
     navbar.append(Zone_4)
     navbar.tools(app.window('ui/info.ui'))
     navbar.instance.show( )
-    navbar.instance.setWindowTitle('АСУ ПЕРЕРАБОТКИ И ФАСОВКИ ТРЕПЕЛА 250817 (c) 2025 https://tech-re.ru')
+    navbar.instance.setWindowTitle('АСУ ПЕРЕРАБОТКИ И ФАСОВКИ ТРЕПЕЛА 250817 (c) 2025 https://tech-re.ru/')
     # или 
     # Home.show()               
     

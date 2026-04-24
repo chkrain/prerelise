@@ -162,7 +162,7 @@ emergency_fault_siren = BLINK(enable=lambda: hw.EMERGENCY==True or factory_1.eme
                             t_on=4000, t_off=1000, 
                             q=lambda state: setattr(motor_999, 'on', state))
 
-humidity_fault_siren = BLINK(enable=lambda: hw.H1 > humidity_setpoint.setpoint, t_on = 6000, t_off=1000, q=lambda state: setattr(motor_999, 'on', state))
+humidity_fault_siren = BLINK(enable=lambda: hw.H1 > humidity_setpoint.setpoint, t_on = 6000, t_off=10000, q=lambda state: setattr(motor_999, 'on', state))
 
 motor_12.sp = 1500
 motor_1.sp = 15
