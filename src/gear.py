@@ -10,7 +10,7 @@ class Gear(SFC):
     RUN = 2
     STOP = 3
     
-    MAINTENANCE_INTERVAL = 18000
+    MAINTENANCE_INTERVAL = 600
     
     rdy = POU.var(False)
     on  = POU.var(False)
@@ -21,7 +21,7 @@ class Gear(SFC):
     rsn  = POU.var(int(0),hidden=True)      #выбор нештатной ситуации
     manual=POU.var(False,persistent=True) #ручной режим (не учитывать depends)
     
-    fault = POU.input(False, hidden = True)
+    fault = POU.input(False)
     _lock = POU.input(False,hidden = True)
     q   = POU.output(False, hidden = True)    
     msg = POU.var('Oжидание')
@@ -117,6 +117,7 @@ class Gear(SFC):
     def emergency(self,on: bool):
         self.on = False
         self.off = on
+        self.msg = 'Авария'
         
     def main(self):
         self.state = Gear.IDLE

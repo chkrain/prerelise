@@ -228,6 +228,7 @@ if platform == 'linux':
   imotor_15 = IMotor( q = hw.MOTOR_ON_15, ison = hw.MOTOR_ISON_15)
   imotor_17 = IMotor( q = hw.MOTOR_ON_17, ison = hw.MOTOR_ISON_17)
   plc.force(EMERGENCY = False, PU_STOP_1=True, PU_STOP_2 = True)
+  motor_19.fault = True
 
   instances += (ibelt_1,ibelt_3,ibelt_5,ibelt_7,ibelt_8,ibelt_10,
                 ibelt_14, ibelt_16, ibelt_18, ibelt_19, ibelt_20,
