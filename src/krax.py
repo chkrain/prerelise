@@ -20,14 +20,15 @@ if platform == 'fake':
 
 factory_1 = Factory(emergency=hw.EMERGENCY)
 fq_1 = FQConv(addr=1)
-fq_3 = FQConv(addr=2) #
+fq_3 = FQConv(addr=2) 
 fq_5 = FQConv(addr=9)
 fq_7 = FQConv(addr=10)
 fq_8 = FQConv(addr=11)
 fq_10 = FQConv(addr=3)
 fq_11 = FQConv(addr=55) # барабан
-fq_12 = FQConv(addr=4) #
+fq_12 = FQConv(addr=4) 
 fq_14 = FQConv(addr=5)
+fq_15 = FQConv(addr=15) # дробилка 15
 fq_16 = FQConv(addr=6)
 fq_18 = FQConv(addr=12) 
 fq_19 = FQConv(addr=13)
@@ -46,7 +47,8 @@ any_18_or_19 = GearAny(motor_18,motor_19)
 motor_17= Motor(q=hw.MOTOR_ON_17,fault=~hw.MOTOR_ISON_17,depends=any_18_or_19)
 motor_171= Feeder(q=hw.MOTOR_ON_171, fault=fq_171.fault, lock=hw.ROPE_171, rot=hw.BELT_171, fq=fq_171.set_fq, depends=motor_17)
 motor_16= Feeder(q=hw.MOTOR_ON_16, fault=fq_16.fault, lock=hw.ROPE_16, rot=hw.BELT_16,fq=fq_16.set_fq,depends=motor_17)
-motor_15= Motor(q=hw.MOTOR_ON_15,fault=~hw.MOTOR_ISON_15,depends=motor_16)
+# motor_15= Motor(q=hw.MOTOR_ON_15,fault=~hw.MOTOR_ISON_15,depends=motor_16)
+motor_15= Feeder(q=hw.MOTOR_ON_15, fault=fq_15.fault, lock=fq_15.fault, rot=True, fq=fq_15.set_fq,depends=motor_16)
 motor_14= Feeder(q=hw.MOTOR_ON_14, fault=fq_14.fault, lock=hw.ROPE_14, rot=hw.BELT_14,fq=fq_14.set_fq,depends=motor_15)
 #ZONE 1
 motor_13= GearROT(q=hw.AUGER_ON_13,fault=~hw.AUGER_ISON_13, rot=hw.AUGER_ROT_13)
@@ -171,6 +173,7 @@ motor_5.sp = 150
 motor_10.sp = 150
 motor_11.sp = 300 
 motor_14.sp = 90
+motor_15.sp = 1200
 motor_16.sp = 180
 motor_18.sp = 300
 motor_19.sp = 300
@@ -187,7 +190,7 @@ instances = (factory_1,
             any_18_or_19,
             motor_7,motor_8,motor_10,motor_11,motor_12,motor_13,
             motor_14,motor_15,motor_16,motor_17,motor_18,motor_19,motor_20,motor_25,motor_171,motor_30,
-            fq_1,fq_3, fq_5,fq_7,fq_8,fq_10, fq_11, fq_12,fq_14,fq_16,fq_18,fq_19,fq_20,fq_171,fq_30,
+            fq_1,fq_3, fq_5,fq_7,fq_8,fq_10, fq_11, fq_12,fq_14,fq_15,fq_16,fq_18,fq_19,fq_20,fq_171,fq_30,
             RTRIG(clk=lambda: hw.OPENED_2==True, q=if_opened),
             RTRIG(clk=lambda: hw.OPENED_2==False, q=if_closed),
             RTRIG(clk=lambda: hw.OPENED_1==True, q=if_opened_2),

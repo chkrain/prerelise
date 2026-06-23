@@ -7,7 +7,7 @@ from pyplc.pou import POU
 
 _lock = allocate_lock()
 _queue = []
-MAX_QUEUE_SIZE = 32
+MAX_QUEUE_SIZE = 64
 
 REQUEST = namedtuple('REQUEST', ['addr','func','reg','val','callback'])
 

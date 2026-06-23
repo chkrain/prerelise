@@ -2897,39 +2897,6 @@ border-radius: 5;</string>
     <string>job</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
-   <property name="geometry">
-    <rect>
-     <x>1810</x>
-     <y>350</y>
-     <width>42</width>
-     <height>36</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="statusTip">
-    <string/>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">
-background-color: rgb(127, 127, 127);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/TREPEL/БСУ-УСТАНОВКА/IP-250411/resources/images/power.png</normaloff>:/TREPEL/БСУ-УСТАНОВКА/IP-250411/resources/images/power.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>30</width>
-     <height>30</height>
-    </size>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_56">
    <property name="geometry">
     <rect>
@@ -2949,31 +2916,6 @@ border-radius: 5;
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_60">
-   <property name="geometry">
-    <rect>
-     <x>1714</x>
-     <y>500</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-radius: 5;</string>
-   </property>
-   <property name="text">
-    <string>Работа вибратора</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="margin">
-    <number>8</number>
-   </property>
-   <property name="style" stdset="0">
-    <string>job</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_39">
@@ -3150,7 +3092,6 @@ border-radius: 5;</string>
   <zorder>label_37</zorder>
   <zorder>label_39</zorder>
   <zorder>label_38</zorder>
-  <zorder>label_60</zorder>
   <zorder>label_47</zorder>
   <zorder>machine_12</zorder>
   <zorder>machine_8</zorder>
@@ -3256,7 +3197,6 @@ border-radius: 5;</string>
   <zorder>label_51</zorder>
   <zorder>gear_30</zorder>
   <zorder>label_57</zorder>
-  <zorder>pushButton_4</zorder>
   <zorder>label_56</zorder>
   <zorder>label_43</zorder>
   <zorder>spinBox_2</zorder>

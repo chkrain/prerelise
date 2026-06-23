@@ -5,11 +5,13 @@
   "tools": {
     "downloader": "",
     "miniterm": "",
-    "telnet": "",
-    "enumSerials": "",
-    "paths": "/home/user/.local/lib/python3.12/site-packages/../Scripts/"
+    "telnet": "/usr/bin/telnet",
+    "enumSerials": "/usr/bin/pyserial-ports",
+    "paths": "/home/ainur/.local/lib/python3.12/site-packages/../Scripts/",
+    "upydev": "/home/ainur/.local/bin/upydev",
+    "serial": "/home/ainur/.local/bin/mpremote"
   },
   "project": "TREPEL-250817",
-  "target": "192.168.8.10",
-  "is_serial": false
+  "target": "/dev/ttyUSB0",
+  "is_serial": true
 }

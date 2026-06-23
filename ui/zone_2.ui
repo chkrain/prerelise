@@ -553,22 +553,6 @@ QLabel[style=&quot;jir&quot;]
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="Gear" name="gear_15">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>211</y>
-     <width>200</width>
-     <height>197</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>ДРОБИЛКА (15)</string>
-   </property>
-   <property name="idx" stdset="0">
-    <number>15</number>
-   </property>
-  </widget>
   <widget class="Gear" name="gear_17">
    <property name="geometry">
     <rect>
@@ -2379,7 +2363,7 @@ QLabel[style=&quot;jir&quot;]
   <widget class="QLabel" name="label_53">
    <property name="geometry">
     <rect>
-     <x>1090</x>
+     <x>1110</x>
      <y>117</y>
      <width>721</width>
      <height>31</height>
@@ -2406,7 +2390,7 @@ border-radius: 5px;</string>
   <widget class="QLabel" name="label_54">
    <property name="geometry">
     <rect>
-     <x>1600</x>
+     <x>1615</x>
      <y>110</y>
      <width>40</width>
      <height>41</height>
@@ -2430,7 +2414,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_55">
    <property name="geometry">
     <rect>
-     <x>1650</x>
+     <x>1665</x>
      <y>110</y>
      <width>41</width>
      <height>41</height>
@@ -2497,7 +2481,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_56">
    <property name="geometry">
     <rect>
-     <x>1090</x>
+     <x>1110</x>
      <y>150</y>
      <width>721</width>
      <height>31</height>
@@ -2524,7 +2508,7 @@ border-radius: 5px;</string>
   <widget class="QLabel" name="label_57">
    <property name="geometry">
     <rect>
-     <x>1502</x>
+     <x>1517</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2548,7 +2532,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_58">
    <property name="geometry">
     <rect>
-     <x>1525</x>
+     <x>1540</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2572,7 +2556,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_59">
    <property name="geometry">
     <rect>
-     <x>1549</x>
+     <x>1564</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2595,7 +2579,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_60">
    <property name="geometry">
     <rect>
-     <x>1577</x>
+     <x>1592</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2619,7 +2603,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_61">
    <property name="geometry">
     <rect>
-     <x>1713</x>
+     <x>1728</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2642,7 +2626,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_62">
    <property name="geometry">
     <rect>
-     <x>1610</x>
+     <x>1625</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2665,7 +2649,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_63">
    <property name="geometry">
     <rect>
-     <x>1679</x>
+     <x>1694</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2688,7 +2672,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_64">
    <property name="geometry">
     <rect>
-     <x>1644</x>
+     <x>1659</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -2711,7 +2695,7 @@ border-radius: 20px;</string>
   <widget class="QLabel" name="label_65">
    <property name="geometry">
     <rect>
-     <x>1745</x>
+     <x>1765</x>
      <y>145</y>
      <width>40</width>
      <height>41</height>
@@ -4681,10 +4665,40 @@ border-radius: 5px;</string>
     <pixmap resource="../resources.qrc">:/TREPEL/resources/attention.png</pixmap>
    </property>
   </widget>
+  <widget class="GearFQ" name="gearfq_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>220</y>
+     <width>214</width>
+     <height>187</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>ДРОБИЛКА (15)</string>
+   </property>
+   <property name="idx" stdset="0">
+    <number>15</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_149">
+   <property name="geometry">
+    <rect>
+     <x>1540</x>
+     <y>560</y>
+     <width>321</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Время с последнего ТО; станция; состояние</string>
+   </property>
+  </widget>
+  <zorder>label_114</zorder>
+  <zorder>label_149</zorder>
   <zorder>label_89</zorder>
   <zorder>label_35</zorder>
   <zorder>animation</zorder>
-  <zorder>label_114</zorder>
   <zorder>label_82</zorder>
   <zorder>connector_20</zorder>
   <zorder>start_22</zorder>
@@ -4711,7 +4725,6 @@ border-radius: 5px;</string>
   <zorder>gear_20</zorder>
   <zorder>label_5</zorder>
   <zorder>label_6</zorder>
-  <zorder>gear_15</zorder>
   <zorder>gear_17</zorder>
   <zorder>connector_8</zorder>
   <zorder>connector_12</zorder>
@@ -4906,6 +4919,7 @@ border-radius: 5px;</string>
   <zorder>checkpoint_43</zorder>
   <zorder>label_147</zorder>
   <zorder>label_148</zorder>
+  <zorder>gearfq_2</zorder>
  </widget>
  <customwidgets>
   <customwidget>
